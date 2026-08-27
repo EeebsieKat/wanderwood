@@ -157,3 +157,12 @@ footer {
     color: #7dcfff !important;
   }
 }
+
+/* Ensure graph labels and nodes remain visible */
+.graph-outer canvas {
+  opacity: 1 !important;
+}
+
+.graph-component {
+  height: 350px !important; /* Gives the full graph room to expand */
+}
