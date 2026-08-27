@@ -1,177 +1,83 @@
 @use "./variables.scss" as *;
 
-// 1. Redefine Quartz Color Variables with Minecraft Live Palette
-:root[saved-theme="dark"], body[saved-theme="dark"] {
-  --light: #1A1A1A;          // Void Black (Main background)
-  --lightgray: #C6C6C6;      // Stone Grey (Card borders / dividers)
-  --gray: #B17A55;           // Dirt Brown (Muted text / section accents)
-  --darkgray: #EEEEEE;       // Quartz White (Primary body text)
-  --dark: #FF9E0D;           // Beacon Orange (Headings & titles)
-  --secondary: #009FDA;      // Live Blue (Links & primary branding)
-  --tertiary: #FFD700;       // Gold Glow (Hover accents)
-  --highlight: rgba(0, 159, 218, 0.15); // Live Blue Highlight background
+// 1. Tiled Block Background (All the way back)
+html, body, page, div.page, #quartz-body {
+  background-image: url("/wanderwood/static/stone-texture.png") !important;
+  background-repeat: repeat !important;
+  background-size: 64px 64px !important; // Adjust base tile pixel size
+  image-rendering: pixelated !important;  // Retains crisp Minecraft pixels!
 }
 
-// 2. Global background lock
-html, body, page, div.page, 
-#quartz-body, .sidebar {
-  background-color: var(--light) !important;
-}
-
-// 3. Make the main grid center area a single unified card
-.page > #quartz-body .center {
-  background-color: #242424 !important; // Surface Dark fill
-  border: 1px solid var(--lightgray) !important;
-  border-radius: 16px !important;
-  padding: 2rem 2.5rem !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
-  margin-top: 1rem !important;
-  margin-bottom: 2rem !important;
-}
-
-// 4. Strip background colors and borders from inner elements
-.page > #quartz-body .center > header,
-.page > #quartz-body .center > article,
-.page > #quartz-body .center > .popover-hint,
-.popover-hint,
-article {
-  background: transparent !important;
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.page > #quartz-body .center > header {
-  margin-bottom: 1.5rem !important;
-}
-
-// 5. Hide unwanted horizontal rules
-hr, hr.spacer {
-  display: none !important;
-}
-
-// 6. Styled Tag Pills & Emojis
-a.internal.tag-link {
-  display: inline-block !important;
-  width: fit-content !important;
-  background-color: rgba(0, 159, 218, 0.15) !important;
-  color: var(--secondary) !important;
-  border: 1px solid rgba(0, 159, 218, 0.4) !important;
-  border-radius: 12px !important;
-  padding: 2px 10px !important;
-  font-size: 0.85em !important;
-  font-weight: 600 !important;
-  margin: 4px 2px !important;
-
-  &:hover {
-    color: var(--tertiary) !important; // Gold Glow on hover
-  }
-
-  &[href*="blocks"]::before {
-    content: "⚒️ ";
-  }
-  &[href*="core"]::before {
-    content: "📜 ";
-  }
-}
-
-// 7. Left Explorer Sidebar Card
-.explorer {
-  background-color: #242424 !important; // Surface Dark fill
-  border: 1px solid var(--lightgray) !important;
-  border-radius: 12px !important;
-  padding: 1rem !important;
-
-  ul, div {
-    background: transparent !important;
-  }
-
-  .folder-container a, 
-  .file-link {
-    border-radius: 8px !important;
-    padding: 3px 8px !important;
-    transition: background 0.2s ease !important;
-
-    &:hover {
-      background: rgba(255, 158, 13, 0.15) !important;
-      color: var(--tertiary) !important;
-    }
-  }
-}
-
-// Explorer Item Custom Colors
-a[data-for="Core Systems"], 
-.explorer [data-folderpath="Core Systems"] > .folder-container > a {
-  color: #FF9E0D !important; // Beacon Orange
-}
-
-a[data-for="Blocks"], 
-.explorer [data-folderpath="Blocks"] > .folder-container > a {
-  color: #FF6B6B !important; // Redstone Power
-}
-
-// 8. Graph View Card & Canvas Cleanup
-.graph, 
-.graph > .graph-outer, 
-div[id^="graph-"] {
-  background-color: #242424 !important; // Surface Dark fill
-  border-radius: 12px !important;
-  border: 1px solid var(--lightgray) !important;
-  padding: 0.5rem !important;
-}
-
-.graph-outer canvas {
-  background: transparent !important;
-  opacity: 1 !important;
-}
-
-.graph-component {
-  height: 350px !important;
-}
-
-// 9. Footer Styling
-footer {
-  background: transparent !important;
-  border: none !important;
-  margin-top: 1rem !important;
-  padding: 1rem 0 !important;
-  color: var(--gray) !important;
-  text-align: center;
-
-  p, a {
-    color: var(--gray) !important;
-    font-size: 0.85rem;
-  }
-
-  a:hover {
-    color: var(--secondary) !important;
-  }
-}
-
-// 10. MOB BUDDY!!
-.explorer {
+// 2. Minecraft Live Banner Header (Spans across the top)
+.page > #quartz-body {
   position: relative !important;
+  padding-top: 140px !important; // Creates room for top banner
+
+  &::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 120px !important;
+
+    // Custom Live Blue gradient banner base (swapping the red theme)
+    background: linear-gradient(135deg, #009FDA 0%, #005c8a 100%) !important;
+    border-bottom: 4px solid #000000 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6) !important;
+    z-index: 10 !important;
+  }
+}
+
+// 3. Container Card Fill + Tiled Grass Top Border
+.page > #quartz-body .center,
+.explorer,
+.graph,
+div[id^="graph-"] {
+  position: relative !important;
+  background-color: #242424 !important; // Surface dark fill
+  border: 3px solid #101010 !important;
+  border-radius: 4px !important; // Blockier corners for Minecraft aesthetic
+  margin-top: 24px !important; // Space for grass top overhang
+
+  // Tiled Grass Top Cap
+  &::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: -16px !important; // Pulls top edge over card border
+    left: -3px !important;
+    right: -3px !important;
+    height: 16px !important;
+    
+    // Tiled grass block texture image
+    background-image: url("/wanderwood/static/grass-top.png") !important;
+    background-repeat: repeat-x !important;
+    background-size: auto 16px !important;
+    image-rendering: pixelated !important;
+    z-index: 5 !important;
+  }
+}
+
+// 4. Explorer Sidebar Box Setup
+.explorer {
   overflow: visible !important;
 }
 
+// 5. MOB BUDDY (Sitting on top of the grass border)
 .explorer::before {
   content: "" !important;
   display: block !important;
   position: absolute !important;
-  
-  top: -16px !important;
+  top: -48px !important; // Keeps him perched directly on top of grass
   right: 12px !important;
-  
-  width: 100px !important;
-  height: 100px !important;
-  
+  width: 64px !important;
+  height: 64px !important;
   background-image: url("/wanderwood/static/mob-buddy.gif") !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
   background-position: center bottom !important;
-  
+  image-rendering: pixelated !important;
   pointer-events: none !important;
   z-index: 100 !important;
 }
