@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=./quartz/plugins/quartz-plugins.schema.json
 configuration:
-  pageTitle: Quartz 5
+  pageTitle: The Wanderwood
   pageTitleSuffix: ""
   enableSPA: true
   enablePopovers: true
@@ -31,14 +31,14 @@ configuration:
         highlight: rgba(143, 159, 169, 0.15)
         textHighlight: "#fff23688"
       darkMode:
-        light: "#161618"
-        lightgray: "#393639"
-        gray: "#646464"
-        darkgray: "#d4d4d4"
-        dark: "#ebebec"
-        secondary: "#7b97aa"
-        tertiary: "#84a59d"
-        highlight: rgba(143, 159, 169, 0.15)
+        light: "#16161e"
+        lightgray: "#2ac3de"
+        gray: "#565f89"
+        darkgray: "#cfc9c2"
+        dark: "#7aa2f7"
+        secondary: "#7dcfff"
+        tertiary: "#bb9af7"
+        highlight: rgba(42, 195, 222, 0.15)
         textHighlight: "#b3aa0288"
 plugins:
   - source: "@quartz-community/created-modified-date"
@@ -128,7 +128,7 @@ plugins:
     options:
       iterations: 600000
       passwordField: password
-      unlistWhenEncrypted: false
+      unlistedWhenEncrypted: false
       outputPath: static/encryptedContentIndex.json
   - source: "@quartz-community/stacked-pages"
     enabled: false
