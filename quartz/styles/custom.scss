@@ -181,11 +181,11 @@ footer {
   position: absolute !important;
   
   /* Positions him directly on the top border */
-  top: -24px !important;    /* Negative value pulls him up onto the top bar */
+  top: -16px !important;    /* Negative value pulls him up onto the top bar */
   right: 12px !important;   /* Distance from the right corner */
   
-  width: 32px !important;
-  height: 32px !important;
+  width: 100px !important;
+  height: 100px !important;
   
   background-image: url("/wanderwood/static/mob-buddy.gif") !important;
   background-size: contain !important;
