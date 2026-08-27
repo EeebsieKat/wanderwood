@@ -165,11 +165,17 @@ plugins:
   - source: "@quartz-community/graph"
     enabled: true
     options:
-      showGlobalGraph: true
+      enableGlobalGraph: true
+      enablePageGraph: false
+      showTags: true
+      showLabels: true
       localGraph:
-        showTags: false
+        showTags: true
+        showLabels: true
+        depth: -1
       globalGraph:
         showTags: true
+        showLabels: true
     layout:
       position: right
       priority: 10
