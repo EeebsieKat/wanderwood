@@ -1,15 +1,15 @@
 @use "./variables.scss" as *;
 
-// 1. Redefine Quartz Color Variables to match your blog's dark theme
+// 1. Redefine Quartz Color Variables with Minecraft Live Palette
 :root[saved-theme="dark"], body[saved-theme="dark"] {
-  --light: #16161e;          // Main background (Deep Navy)
-  --lightgray: #292e42;      // Card borders / subtle outlines
-  --gray: #565f89;           // Subtitles & muted text
-  --darkgray: #cfc9c2;       // Primary body text
-  --dark: #7aa2f7;           // Headings & titles
-  --secondary: #7dcfff;      // Links & accents (Vibrant Cyan)
-  --tertiary: #bb9af7;       // Hover accents (Purple)
-  --highlight: rgba(42, 195, 222, 0.15); // Highlight background
+  --light: #1A1A1A;          // Void Black (Main background)
+  --lightgray: #C6C6C6;      // Stone Grey (Card borders / dividers)
+  --gray: #B17A55;           // Dirt Brown (Muted text / section accents)
+  --darkgray: #EEEEEE;       // Quartz White (Primary body text)
+  --dark: #FF9E0D;           // Beacon Orange (Headings & titles)
+  --secondary: #009FDA;      // Live Blue (Links & primary branding)
+  --tertiary: #FFD700;       // Gold Glow (Hover accents)
+  --highlight: rgba(0, 159, 218, 0.15); // Live Blue Highlight background
 }
 
 // 2. Global background lock
@@ -20,16 +20,16 @@ html, body, page, div.page,
 
 // 3. Make the main grid center area a single unified card
 .page > #quartz-body .center {
-  background-color: #1f2335 !important;
+  background-color: #242424 !important; // Surface Dark fill
   border: 1px solid var(--lightgray) !important;
   border-radius: 16px !important;
   padding: 2rem 2.5rem !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
   margin-top: 1rem !important;
   margin-bottom: 2rem !important;
 }
 
-// 4. Strip background colors and borders from inner elements (header, article, popover)
+// 4. Strip background colors and borders from inner elements
 .page > #quartz-body .center > header,
 .page > #quartz-body .center > article,
 .page > #quartz-body .center > .popover-hint,
@@ -43,7 +43,6 @@ article {
   margin: 0 !important;
 }
 
-// Add clean spacing between header and page text inside the card
 .page > #quartz-body .center > header {
   margin-bottom: 1.5rem !important;
 }
@@ -57,14 +56,18 @@ hr, hr.spacer {
 a.internal.tag-link {
   display: inline-block !important;
   width: fit-content !important;
-  background-color: rgba(42, 195, 222, 0.15) !important;
+  background-color: rgba(0, 159, 218, 0.15) !important;
   color: var(--secondary) !important;
-  border: 1px solid rgba(42, 195, 222, 0.4) !important;
+  border: 1px solid rgba(0, 159, 218, 0.4) !important;
   border-radius: 12px !important;
   padding: 2px 10px !important;
   font-size: 0.85em !important;
   font-weight: 600 !important;
   margin: 4px 2px !important;
+
+  &:hover {
+    color: var(--tertiary) !important; // Gold Glow on hover
+  }
 
   &[href*="blocks"]::before {
     content: "⚒️ ";
@@ -76,7 +79,7 @@ a.internal.tag-link {
 
 // 7. Left Explorer Sidebar Card
 .explorer {
-  background-color: #1f2335 !important;
+  background-color: #242424 !important; // Surface Dark fill
   border: 1px solid var(--lightgray) !important;
   border-radius: 12px !important;
   padding: 1rem !important;
@@ -92,8 +95,8 @@ a.internal.tag-link {
     transition: background 0.2s ease !important;
 
     &:hover {
-      background: rgba(122, 162, 247, 0.15) !important;
-      color: var(--secondary) !important;
+      background: rgba(255, 158, 13, 0.15) !important;
+      color: var(--tertiary) !important;
     }
   }
 }
@@ -101,88 +104,65 @@ a.internal.tag-link {
 // Explorer Item Custom Colors
 a[data-for="Core Systems"], 
 .explorer [data-folderpath="Core Systems"] > .folder-container > a {
-  color: #ff9e64 !important;
+  color: #FF9E0D !important; // Beacon Orange
 }
 
 a[data-for="Blocks"], 
 .explorer [data-folderpath="Blocks"] > .folder-container > a {
-  color: #f7768e !important;
+  color: #FF6B6B !important; // Redstone Power
 }
 
-// 8. Graph View Card
-.graph {
-  background-color: #1f2335 !important;
-  border: 1px solid var(--lightgray) !important;
-  border-radius: 12px !important;
-  padding: 0.5rem !important;
-}
-
-// 9. Footer Styling
-footer {
-  color: var(--gray) !important;
-  a {
-    color: var(--secondary) !important;
-  }
-}
-
-// Fix the Graph View container AND the internal canvas background
+// 8. Graph View Card & Canvas Cleanup
 .graph, 
 .graph > .graph-outer, 
 div[id^="graph-"] {
-  background-color: #1f2335 !important;
+  background-color: #242424 !important; // Surface Dark fill
   border-radius: 12px !important;
-  border: 1px solid #292e42 !important;
+  border: 1px solid var(--lightgray) !important;
+  padding: 0.5rem !important;
 }
 
-// Remove the canvas container's internal charcoal fill
 .graph-outer canvas {
   background: transparent !important;
+  opacity: 1 !important;
 }
 
-// Style and center the Footer cleanly under the main card
+.graph-component {
+  height: 350px !important;
+}
+
+// 9. Footer Styling
 footer {
   background: transparent !important;
   border: none !important;
   margin-top: 1rem !important;
   padding: 1rem 0 !important;
-  color: #565f89 !important;
+  color: var(--gray) !important;
   text-align: center;
 
   p, a {
-    color: #565f89 !important;
+    color: var(--gray) !important;
     font-size: 0.85rem;
   }
 
   a:hover {
-    color: #7dcfff !important;
+    color: var(--secondary) !important;
   }
 }
 
-/* Ensure graph labels and nodes remain visible */
-.graph-outer canvas {
-  opacity: 1 !important;
-}
-
-.graph-component {
-  height: 350px !important; /* Gives the full graph room to expand */
-}
-
-// MOB BUDDY!!
-
+// 10. MOB BUDDY!!
 .explorer {
   position: relative !important;
   overflow: visible !important;
 }
 
-/* Create the sitting buddy on the top edge */
 .explorer::before {
   content: "" !important;
   display: block !important;
   position: absolute !important;
   
-  /* Positions him directly on the top border */
-  top: -16px !important;    /* Negative value pulls him up onto the top bar */
-  right: 12px !important;   /* Distance from the right corner */
+  top: -16px !important;
+  right: 12px !important;
   
   width: 100px !important;
   height: 100px !important;
