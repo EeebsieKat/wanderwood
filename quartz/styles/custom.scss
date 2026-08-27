@@ -166,3 +166,43 @@ footer {
 .graph-component {
   height: 350px !important; /* Gives the full graph room to expand */
 }
+
+// Container setup for relative positioning
+.explorer {
+  position: relative !important;
+  overflow: visible !important; // Allows the mob to pop out of the box if desired
+}
+
+// Animated Mob Pagedoll Attachment
+.explorer::after {
+  content: "";
+  position: absolute;
+  
+  // Position the mob (adjust these values to place it where you want)
+  top: -35px;          // Sits right on top of the Explorer header
+  right: 15px;         // Aligned to the right edge
+  
+  // Dimensions of your mob sprite
+  width: 48px;
+  height: 48px;
+  
+  // Image properties
+  background-image: url("/static/mob-buddy.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none; // Allows clicking "through" the sprite to items behind it
+  
+  // Optional floating idle animation
+  animation: mobIdle 2.5s ease-in-out infinite;
+}
+
+// Smooth up-and-down floating movement
+@keyframes mobIdle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
