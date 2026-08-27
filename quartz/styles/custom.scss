@@ -1,53 +1,64 @@
 @use "./variables.scss" as *;
 
-// 1. Force the deep navy background globally across all main layout sections
-html, body, page, div.page, 
-.left.sidebar, .right.sidebar, .center {
-  background-color: #16161e !important;
+// 1. Redefine Quartz Color Variables to match your blog's dark theme
+:root[saved-theme="dark"], body[saved-theme="dark"] {
+  --light: #16161e;          // Main background (Deep Navy)
+  --lightgray: #292e42;      // Card borders / subtle outlines
+  --gray: #565f89;           // Subtitles & muted text
+  --darkgray: #cfc9c2;       // Primary body text
+  --dark: #7aa2f7;           // Headings & titles
+  --secondary: #7dcfff;      // Links & accents (Vibrant Cyan)
+  --tertiary: #bb9af7;       // Hover accents (Purple)
+  --highlight: rgba(42, 195, 222, 0.15); // Highlight background
 }
 
-// 2. Unify the main center content area into one continuous card wrapper
-div.page > div.center {
-  max-width: 800px !important;
-  margin: 1.5rem auto 2rem auto !important;
+// 2. Global background lock
+html, body, page, div.page, 
+#quartz-body, .sidebar {
+  background-color: var(--light) !important;
+}
+
+// 3. Make the main grid center area a single unified card
+.page > #quartz-body .center {
   background-color: #1f2335 !important;
+  border: 1px solid var(--lightgray) !important;
   border-radius: 16px !important;
   padding: 2rem 2.5rem !important;
-  border: 1px solid #292e42 !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
+  margin-top: 1rem !important;
+  margin-bottom: 2rem !important;
 }
 
-// 3. Completely strip inner element background colors, paddings, and borders causing disjointed inner boxes
-header, 
-article, 
-.popover-hint, 
-div.page > div.center > header, 
-div.page > div.center > article,
-div.page > div.center > .popover-hint {
+// 4. Strip background colors and borders from inner elements (header, article, popover)
+.page > #quartz-body .center > header,
+.page > #quartz-body .center > article,
+.page > #quartz-body .center > .popover-hint,
+.popover-hint,
+article {
   background: transparent !important;
   background-color: transparent !important;
   border: none !important;
-  padding: 0 !important;
   box-shadow: none !important;
+  padding: 0 !important;
   margin: 0 !important;
 }
 
-// Ensure distance between header and article body without making card gaps
-header {
+// Add clean spacing between header and page text inside the card
+.page > #quartz-body .center > header {
   margin-bottom: 1.5rem !important;
 }
 
-// 4. Hide all default divider lines
+// 5. Hide unwanted horizontal rules
 hr, hr.spacer {
   display: none !important;
 }
 
-// 5. Tag Pill Formatting
+// 6. Styled Tag Pills & Emojis
 a.internal.tag-link {
   display: inline-block !important;
   width: fit-content !important;
   background-color: rgba(42, 195, 222, 0.15) !important;
-  color: #7dcfff !important;
+  color: var(--secondary) !important;
   border: 1px solid rgba(42, 195, 222, 0.4) !important;
   border-radius: 12px !important;
   padding: 2px 10px !important;
@@ -63,15 +74,13 @@ a.internal.tag-link {
   }
 }
 
-// 6. Left Explorer sidebar card container and hover styling
+// 7. Left Explorer Sidebar Card
 .explorer {
-  background: #1f2335 !important;
+  background-color: #1f2335 !important;
+  border: 1px solid var(--lightgray) !important;
   border-radius: 12px !important;
-  border: 1px solid #292e42 !important;
   padding: 1rem !important;
-  margin-top: 0.5rem !important;
 
-  // Clear inner dark container behind explorer items
   ul, div {
     background: transparent !important;
   }
@@ -84,12 +93,12 @@ a.internal.tag-link {
 
     &:hover {
       background: rgba(122, 162, 247, 0.15) !important;
-      color: #7dcfff !important;
+      color: var(--secondary) !important;
     }
   }
 }
 
-// Custom Explorer Folder & File Colors
+// Explorer Item Custom Colors
 a[data-for="Core Systems"], 
 .explorer [data-folderpath="Core Systems"] > .folder-container > a {
   color: #ff9e64 !important;
@@ -100,18 +109,18 @@ a[data-for="Blocks"],
   color: #f7768e !important;
 }
 
-// 7. Graph View Card
+// 8. Graph View Card
 .graph {
-  background: #1f2335 !important;
+  background-color: #1f2335 !important;
+  border: 1px solid var(--lightgray) !important;
   border-radius: 12px !important;
-  border: 1px solid #292e42 !important;
   padding: 0.5rem !important;
 }
 
-// 8. Footer styling
+// 9. Footer Styling
 footer {
-  color: #565f89 !important;
+  color: var(--gray) !important;
   a {
-    color: #7dcfff !important;
+    color: var(--secondary) !important;
   }
 }
