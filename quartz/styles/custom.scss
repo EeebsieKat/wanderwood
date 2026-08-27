@@ -1,3 +1,17 @@
 @use "./variables.scss" as *;
 
-// put your custom CSS here!
+// Centered layout container similar to your blog
+.page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+// Card background wrapper for content
+article {
+  background: #1f2335;
+  border-radius: 12px;
+  padding: 2.5rem;
+  border: 1px solid #292e42;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
