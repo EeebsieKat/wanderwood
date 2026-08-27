@@ -169,16 +169,29 @@ footer {
 
 // MOB BUDDY!!
 
-/* Attach the mob sprite directly to the top-right corner of the Explorer container */
 .explorer {
   position: relative !important;
   overflow: visible !important;
-  /* Top padding makes room so your mob doesn't overlap the header text */
-  padding-top: 40px !important; 
+}
 
-  /* Render the GIF directly as a background image */
+/* Create the sitting buddy on the top edge */
+.explorer::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  
+  /* Positions him directly on the top border */
+  top: -24px !important;    /* Negative value pulls him up onto the top bar */
+  right: 12px !important;   /* Distance from the right corner */
+  
+  width: 32px !important;
+  height: 32px !important;
+  
   background-image: url("/wanderwood/static/mob-buddy.gif") !important;
+  background-size: contain !important;
   background-repeat: no-repeat !important;
-  background-position: top right 10px !important;
-  background-size: 36px 36px !important;
+  background-position: center bottom !important;
+  
+  pointer-events: none !important;
+  z-index: 100 !important;
 }
