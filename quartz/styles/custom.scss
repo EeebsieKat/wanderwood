@@ -1,6 +1,6 @@
 @use "./variables.scss" as *;
 
-// 1. Tiled Background (128px chunkier scale)
+// 1. Tiled Background (128px scale)
 html, body, page, div.page, #quartz-body {
   background-image: url("/wanderwood/static/stone-texture.png") !important;
   background-repeat: repeat !important;
@@ -8,10 +8,10 @@ html, body, page, div.page, #quartz-body {
   image-rendering: pixelated !important;
 }
 
-// 2. Top Banner Header with Banner Image
+// 2. Top Banner Header with Centered Banner Image
 .page > #quartz-body {
   position: relative !important;
-  padding-top: 160px !important; // Creates clean clearance for banner + grass overhang
+  padding-top: 160px !important;
 
   &::before {
     content: "" !important;
@@ -21,11 +21,11 @@ html, body, page, div.page, #quartz-body {
     width: 100% !important;
     height: 120px !important;
 
-    // Image Banner setup
+    // Centered Banner Logo
     background-image: url("/wanderwood/static/wanderwood-banner.png"), 
                       linear-gradient(135deg, #009FDA 0%, #005c8a 100%) !important;
     background-repeat: no-repeat !important;
-    background-position: center 2.5rem center !important;
+    background-position: center center !important;
     background-size: contain !important;
 
     border-bottom: 4px solid #101010 !important;
@@ -39,7 +39,7 @@ html, body, page, div.page, #quartz-body {
   display: none !important;
 }
 
-// 3. Main Center Card & Sidebar Containers (Flush Alignment + Heavy Grass Cap)
+// 3. Container Cards + Big 128px Grass Cap
 .page > #quartz-body .center,
 .sidebar .explorer,
 .sidebar .graph,
@@ -48,44 +48,70 @@ div[id^="graph-"] {
   background-color: #242424 !important;
   border: 4px solid #101010 !important;
   border-radius: 4px !important;
-  margin-top: 20px !important; // Standardized vertical grid spacing
+  margin-top: 20px !important;
 
-  // Larger Grass Cap lowered over top border
+  // Big Grass Cap
   &::after {
     content: "" !important;
     display: block !important;
     position: absolute !important;
-    
-    // Lowered top offset so grass hangs over the top of the card border
     top: -8px !important; 
     left: -4px !important;
     right: -4px !important;
-    height: 128px !important; // Substantially chunkier grass pixel scale
+    height: 128px !important; // Big grass texture retained
     
     background-image: url("/wanderwood/static/grass-top.png") !important;
     background-repeat: repeat-x !important;
     background-size: auto 128px !important;
     image-rendering: pixelated !important;
-    z-index: 0 !important;
+    pointer-events: none !important;
+    z-index: 1 !important; // Sits above background, below text
   }
 }
 
-// Ensure middle center container lines up horizontally with sidebar elements
-.page > #quartz-body .center {
-  margin-top: 20px !important;
-}
-
-// 4. Explorer Container Setup
+// 4. Force Text and Elements ABOVE the Big Grass
 .explorer {
   overflow: visible !important;
+  padding-top: 80px !important; // Pushes text down so it starts below the grass overhang
+
+  button, 
+  .explorer-title, 
+  .folder-container, 
+  .file-link, 
+  ul, 
+  div,
+  span,
+  a {
+    position: relative !important;
+    z-index: 20 !important; // Force text to sit on top of the grass layer
+  }
 }
 
-// 5. MOB BUDDY (Adjusted to sit right on top of the lowered grass border)
+.page > #quartz-body .center {
+  margin-top: 20px !important;
+  padding-top: 90px !important; // Clearance for main article content below big grass
+  
+  header, article, div {
+    position: relative !important;
+    z-index: 20 !important;
+  }
+}
+
+.sidebar .graph {
+  padding-top: 80px !important;
+  
+  * {
+    position: relative !important;
+    z-index: 20 !important;
+  }
+}
+
+// 5. MOB BUDDY (Sitting on top of the big grass)
 .explorer::before {
   content: "" !important;
   display: block !important;
   position: absolute !important;
-  top: -60px !important; // Perched right on top of the grass layer
+  top: -40px !important; 
   right: 12px !important;
   width: 64px !important;
   height: 64px !important;
