@@ -11,7 +11,7 @@ html, body, page, div.page, #quartz-body {
 // 2. Top Banner Header with Centered Banner Image
 .page > #quartz-body {
   position: relative !important;
-  padding-top: 160px !important;
+  padding-top: 150px !important;
 
   &::before {
     content: "" !important;
@@ -39,7 +39,7 @@ html, body, page, div.page, #quartz-body {
   display: none !important;
 }
 
-// 3. Container Cards + Big 128px Grass Cap
+// 3. Container Cards + Compact High-Scale Grass Cap
 .page > #quartz-body .center,
 .sidebar .explorer,
 .sidebar .graph,
@@ -50,29 +50,30 @@ div[id^="graph-"] {
   border-radius: 4px !important;
   margin-top: 20px !important;
 
-  // Big Grass Cap
+  // Grass Cap: Big scale, small box
   &::after {
     content: "" !important;
     display: block !important;
     position: absolute !important;
-    top: -8px !important; 
+    top: -16px !important; 
     left: -4px !important;
     right: -4px !important;
-    height: 128px !important; // Big grass texture retained
+    height: 36px !important; // Crops out the blank bottom space of the texture
     
     background-image: url("/wanderwood/static/grass-top.png") !important;
     background-repeat: repeat-x !important;
-    background-size: auto 128px !important;
+    background-size: auto 128px !important; // Keeps original big pixel size
+    background-position: center top !important;
     image-rendering: pixelated !important;
     pointer-events: none !important;
-    z-index: 1 !important; // Sits above background, below text
+    z-index: 1 !important;
   }
 }
 
-// 4. Force Text and Elements ABOVE the Big Grass
+// 4. Snug Padding to Pull Text Right Up to the Grass
 .explorer {
   overflow: visible !important;
-  padding-top: 80px !important; // Pushes text down so it starts below the grass overhang
+  padding-top: 24px !important; // Scaled way down to close the gap
 
   button, 
   .explorer-title, 
@@ -83,13 +84,13 @@ div[id^="graph-"] {
   span,
   a {
     position: relative !important;
-    z-index: 20 !important; // Force text to sit on top of the grass layer
+    z-index: 20 !important;
   }
 }
 
 .page > #quartz-body .center {
   margin-top: 20px !important;
-  padding-top: 90px !important; // Clearance for main article content below big grass
+  padding-top: 28px !important; // Scaled way down for main body text
   
   header, article, div {
     position: relative !important;
@@ -98,7 +99,7 @@ div[id^="graph-"] {
 }
 
 .sidebar .graph {
-  padding-top: 80px !important;
+  padding-top: 24px !important;
   
   * {
     position: relative !important;
@@ -106,12 +107,12 @@ div[id^="graph-"] {
   }
 }
 
-// 5. MOB BUDDY (Sitting on top of the big grass)
+// 5. MOB BUDDY
 .explorer::before {
   content: "" !important;
   display: block !important;
   position: absolute !important;
-  top: -40px !important; 
+  top: -48px !important; 
   right: 12px !important;
   width: 64px !important;
   height: 64px !important;
