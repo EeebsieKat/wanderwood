@@ -124,3 +124,36 @@ footer {
     color: var(--secondary) !important;
   }
 }
+
+// Fix the Graph View container AND the internal canvas background
+.graph, 
+.graph > .graph-outer, 
+div[id^="graph-"] {
+  background-color: #1f2335 !important;
+  border-radius: 12px !important;
+  border: 1px solid #292e42 !important;
+}
+
+// Remove the canvas container's internal charcoal fill
+.graph-outer canvas {
+  background: transparent !important;
+}
+
+// Style and center the Footer cleanly under the main card
+footer {
+  background: transparent !important;
+  border: none !important;
+  margin-top: 1rem !important;
+  padding: 1rem 0 !important;
+  color: #565f89 !important;
+  text-align: center;
+
+  p, a {
+    color: #565f89 !important;
+    font-size: 0.85rem;
+  }
+
+  a:hover {
+    color: #7dcfff !important;
+  }
+}
