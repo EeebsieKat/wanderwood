@@ -1,46 +1,35 @@
 @use "./variables.scss" as *;
 
-// 1. Force the deep navy background on EVERY outer container
+// 1. Global background reset
 html, body, page, div.page, 
 .left.sidebar, .right.sidebar, .center {
   background-color: #16161e !important;
 }
 
-// 2. Fix Quartz's inner container override (.popover-hint) to match the main card
-.popover-hint, 
-div.page > div.center, 
-div.page > div.center > article {
-  background-color: #1f2335 !important;
-}
-
-// 3. Style the main center card container with clean borders and rounding
+// 2. Center Column: force ONE unbroken card background
 div.page > div.center {
   max-width: 800px !important;
   margin: 1.5rem auto 2rem auto !important;
+  background-color: #1f2335 !important;
   border-radius: 16px !important;
   padding: 2rem 2.5rem !important;
   border: 1px solid #292e42 !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35) !important;
 }
 
-// 4. Prevent inner elements from creating nested backgrounds or borders
-header, article {
+// 3. Flatten all child elements inside the center column so they don't render inner cards
+div.page > div.center * {
   background: transparent !important;
+  background-color: transparent !important;
   border: none !important;
-  padding: 0 !important;
   box-shadow: none !important;
 }
 
-// 5. Remove unwanted horizontal divider lines
-hr, hr.spacer {
-  display: none !important;
-}
-
-// 6. Tag Pill Formatting & Emojis
-a.internal.tag-link {
+// 4. Re-apply styling specifically to tags inside the center card
+div.page > div.center a.internal.tag-link {
   display: inline-block !important;
   width: fit-content !important;
-  background: rgba(42, 195, 222, 0.15) !important;
+  background-color: rgba(42, 195, 222, 0.15) !important;
   color: #7dcfff !important;
   border: 1px solid rgba(42, 195, 222, 0.4) !important;
   border-radius: 12px !important;
@@ -57,7 +46,12 @@ a.internal.tag-link {
   }
 }
 
-// 7. Left Explorer sidebar card container styling
+// 5. Remove unwanted horizontal rules
+hr, hr.spacer {
+  display: none !important;
+}
+
+// 6. Explorer Sidebar Card
 .explorer {
   background: #1f2335 !important;
   border-radius: 12px !important;
@@ -78,7 +72,7 @@ a.internal.tag-link {
   }
 }
 
-// Custom Explorer Folder & File Colors
+// Custom Explorer Colors
 a[data-for="Core Systems"], 
 .explorer [data-folderpath="Core Systems"] > .folder-container > a {
   color: #ff9e64 !important;
@@ -89,7 +83,7 @@ a[data-for="Blocks"],
   color: #f7768e !important;
 }
 
-// 8. Graph View container styling
+// 7. Graph View Card
 .graph {
   background: #1f2335 !important;
   border-radius: 12px !important;
@@ -97,7 +91,7 @@ a[data-for="Blocks"],
   padding: 0.5rem !important;
 }
 
-// 9. Footer styling
+// 8. Footer
 footer {
   color: #565f89 !important;
   a {
