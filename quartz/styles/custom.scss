@@ -1,75 +1,78 @@
 @use "./variables.scss" as *;
 
-// 1. Scaled Up Tiled Background (Lower pixel density / larger scale)
+// 1. Tiled Background (128px chunkier scale)
 html, body, page, div.page, #quartz-body {
   background-image: url("/wanderwood/static/stone-texture.png") !important;
   background-repeat: repeat !important;
-  background-size: 128px 128px !important; // Doubled scale for chunkier pixels
+  background-size: 128px 128px !important;
   image-rendering: pixelated !important;
 }
 
-// 2. Minecraft Live Banner Header with Embedded Site Title
+// 2. Top Banner Header with Banner Image
 .page > #quartz-body {
   position: relative !important;
-  padding-top: 140px !important;
+  padding-top: 160px !important; // Creates clean clearance for banner + grass overhang
 
   &::before {
-    content: "The Wanderwood" !important;
+    content: "" !important;
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
     height: 120px !important;
 
-    // Header Text Styling
-    color: #FFFFFF !important;
-    font-size: 2.5rem !important;
-    font-weight: 800 !important;
-    display: flex !important;
-    align-items: center !important;
-    padding-left: 2.5rem !important;
-    text-shadow: 3px 3px 0px #000000 !important; // Minecraft-style drop shadow
+    // Image Banner setup
+    background-image: url("/wanderwood/static/the-wanderwood-banner.png"), 
+                      linear-gradient(135deg, #009FDA 0%, #005c8a 100%) !important;
+    background-repeat: no-repeat !important;
+    background-position: left 2.5rem center !important;
+    background-size: contain !important;
 
-    // Banner Background
-    background: linear-gradient(135deg, #009FDA 0%, #005c8a 100%) !important;
     border-bottom: 4px solid #101010 !important;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5) !important;
     z-index: 10 !important;
   }
 }
 
-// Hide default Page Title in the sidebar to prevent duplication
+// Hide sidebar text title so it doesn't duplicate
 .sidebar .page-title {
   display: none !important;
 }
 
-// 3. Container Card Fill + Scaled Tiled Grass Top Cap
+// 3. Main Center Card & Sidebar Containers (Flush Alignment + Heavy Grass Cap)
 .page > #quartz-body .center,
-.explorer,
-.graph,
+.sidebar .explorer,
+.sidebar .graph,
 div[id^="graph-"] {
   position: relative !important;
   background-color: #242424 !important;
-  border: 3px solid #101010 !important;
+  border: 4px solid #101010 !important;
   border-radius: 4px !important;
-  margin-top: 36px !important; // Increased margin to fit larger grass border
+  margin-top: 20px !important; // Standardized vertical grid spacing
 
-  // Scaled Grass Top Cap (Shifted down to sit flush on top of card)
+  // Larger Grass Cap lowered over top border
   &::after {
     content: "" !important;
     display: block !important;
     position: absolute !important;
-    top: -24px !important; // Pulls top edge flush over border
-    left: -3px !important;
-    right: -3px !important;
-    height: 24px !important; // Scaled height to match background scale
+    
+    // Lowered top offset so grass hangs over the top of the card border
+    top: -12px !important; 
+    left: -4px !important;
+    right: -4px !important;
+    height: 36px !important; // Substantially chunkier grass pixel scale
     
     background-image: url("/wanderwood/static/grass-top.png") !important;
     background-repeat: repeat-x !important;
-    background-size: auto 24px !important;
+    background-size: auto 36px !important;
     image-rendering: pixelated !important;
     z-index: 5 !important;
   }
+}
+
+// Ensure middle center container lines up horizontally with sidebar elements
+.page > #quartz-body .center {
+  margin-top: 20px !important;
 }
 
 // 4. Explorer Container Setup
@@ -77,12 +80,12 @@ div[id^="graph-"] {
   overflow: visible !important;
 }
 
-// 5. MOB BUDDY (Shifted to sit perfectly on top of the thicker grass cap)
+// 5. MOB BUDDY (Adjusted to sit right on top of the lowered grass border)
 .explorer::before {
   content: "" !important;
   display: block !important;
   position: absolute !important;
-  top: -64px !important; // Adjusted height for larger grass cap
+  top: -60px !important; // Perched right on top of the grass layer
   right: 12px !important;
   width: 64px !important;
   height: 64px !important;
