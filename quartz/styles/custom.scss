@@ -57,14 +57,14 @@ div[id^="graph-"] {
     position: absolute !important;
     
     // Lowered top offset so grass hangs over the top of the card border
-    top: -12px !important; 
+    top: -16px !important; 
     left: -4px !important;
     right: -4px !important;
     height: 128px !important; // Substantially chunkier grass pixel scale
     
     background-image: url("/wanderwood/static/grass-top.png") !important;
     background-repeat: repeat-x !important;
-    background-size: auto 36px !important;
+    background-size: auto 128px !important;
     image-rendering: pixelated !important;
     z-index: 5 !important;
   }
