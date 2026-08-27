@@ -15,3 +15,54 @@ article {
   border: 1px solid #292e42;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
+
+// 1. Force the page background to match your blog's deep navy color
+body, page, div.page {
+  background-color: #16161e !important;
+}
+
+// 2. Wrap the article AND the title/header into the rounded card container
+article, header {
+  background: #1f2335;
+  border-radius: 12px;
+  padding: 1.5rem 2.5rem;
+  border: 1px solid #292e42;
+}
+
+// Seamlessly connect the title header and article body into one card
+header {
+  border-bottom: none;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-bottom: 0.5rem;
+}
+
+article {
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+// 3. Remove the harsh horizontal divider line under the card
+hr, hr.spacer {
+  display: none !important;
+}
+
+// 4. Style tags with rounded pill backgrounds and custom colors
+a.internal.tag-link {
+  background: #2ac3de22;
+  color: #7dcfff !important;
+  border: 1px solid #2ac3de44;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 0.85em;
+  font-weight: 600;
+
+  // Add emoji to specific tags!
+  &[href*="blocks"]::before {
+    content: "🧱 ";
+  }
+  &[href*="core"]::before {
+    content: "⚡ ";
+  }
+}
