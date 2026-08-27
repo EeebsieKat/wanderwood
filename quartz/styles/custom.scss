@@ -167,42 +167,42 @@ footer {
   height: 350px !important; /* Gives the full graph room to expand */
 }
 
-// Container setup for relative positioning
+// MOB BUDDY!!
+
+/* Prepare Explorer box */
 .explorer {
   position: relative !important;
-  overflow: visible !important; // Allows the mob to pop out of the box if desired
+  overflow: visible !important;
 }
 
-// Animated Mob Pagedoll Attachment
-.explorer::after {
-  content: "";
-  position: absolute;
-  
-  // Position the mob (adjust these values to place it where you want)
-  top: -35px;          // Sits right on top of the Explorer header
-  right: 15px;         // Aligned to the right edge
-  
-  // Dimensions of your mob sprite
-  width: 48px;
-  height: 48px;
-  
-  // Image properties
-  background-image: url("/static/mob-buddy.gif");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  pointer-events: none; // Allows clicking "through" the sprite to items behind it
-  
-  // Optional floating idle animation
-  animation: mobIdle 2.5s ease-in-out infinite;
+/* Attach mob sprite to Explorer Header */
+.explorer button,
+.explorer .explorer-title {
+  position: relative !important;
+  overflow: visible !important;
+
+  &::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: -28px !important;
+    right: 0px !important;
+    width: 36px !important;
+    height: 36px !important;
+    
+    /* Direct URL or base64 fallback */
+    background-image: url(".wanderwood/static/mob-buddy.gif") !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    pointer-events: none !important;
+    z-index: 10 !important;
+
+    /* Optional floating effect */
+    animation: mobBounce 2s ease-in-out infinite !important;
+  }
 }
 
-// Smooth up-and-down floating movement
-@keyframes mobIdle {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
+@keyframes mobBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
 }
