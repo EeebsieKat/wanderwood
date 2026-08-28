@@ -5,3 +5,5 @@
 - [[Cucumbers]]: Refreshing food; minor regen buff
 - [[Parsnips]]: Hardy and nutritious
 - [[Blades of Grass]]: Throwable weapon; used to craft [[Grass Sword]] (low durability, knockback effect)
+- [[Rockrunner]]: Hangs from ceilings; grows raw ores
+- [[Gleamrunner]]: Later tier; grows ingots

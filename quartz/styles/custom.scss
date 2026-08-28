@@ -299,3 +299,69 @@ div[id^="graph-"] {
     color: rgba(163, 144, 152, 0.6) !important;
   }
 }
+
+// 1. Text recolor for readability on dirt (Red-grey tone extracted from blackstone mortar)
+.explorer,
+.explorer *,
+.explorer a,
+.explorer span,
+.graph-title,
+.search-button {
+  color: #bfa8b3 !important;
+  fill: #bfa8b3 !important;
+}
+
+// Hover state for Explorer links
+.explorer a:hover,
+.explorer .folder-container:hover {
+  color: #ffffff !important;
+}
+
+// Active/Selected file highlight
+.explorer .file-link.active,
+.explorer .file-link[aria-current="page"] {
+  background-color: rgba(0, 0, 0, 0.35) !important;
+  border-radius: 2px !important;
+  color: #ffffff !important;
+}
+
+// 2. Search Bar Makeup
+.search {
+  margin-bottom: 12px !important;
+
+  input[type="text"],
+  #search-bar {
+    background-color: #1a1417 !important; // Dark reddish blackstone shadow tone
+    color: #e3d3db !important;
+    border: 2px solid #3d2b33 !important;
+    border-radius: 0px !important; // Sharp 90-degree pixel edge
+    padding: 6px 10px !important;
+    font-family: inherit !important;
+    box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.5) !important;
+
+    &::placeholder {
+      color: #7a636e !important;
+    }
+
+    &:focus {
+      border-color: #55aa22 !important; // Matches your grass green accent
+      outline: none !important;
+    }
+  }
+}
+
+// 3. Graph canvas expansion & background sync
+.graph-outer,
+div[id^="graph-"],
+.graph-view-container {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 220px !important;
+  background: transparent !important;
+
+  svg {
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+  }
+}
