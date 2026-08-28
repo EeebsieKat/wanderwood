@@ -61,17 +61,23 @@ html, body, page, div.page, #quartz-body {
 }
 
 // 3. Container Cards + Compact High-Scale Grass Cap
+// Centering the grid layout container
+.page > #quartz-body {
+  display: flex !important;
+  justify-content: center !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+// Top-Level Card Containers & Grass Cap
 .page > #quartz-body .center,
-.sidebar .explorer,
-.sidebar .graph,
-div[id^="graph-"] {
+.sidebar .graph {
   position: relative !important;
   background-color: #242424 !important;
   border: 4px solid #101010 !important;
   border-radius: 4px !important;
   margin-top: 20px !important;
 
-  // Grass Cap: Big scale, small box
   &::after {
     content: "" !important;
     display: block !important;
@@ -79,11 +85,10 @@ div[id^="graph-"] {
     top: -8px !important; 
     left: -4px !important;
     right: -4px !important;
-    height: 36px !important; // Crops out the blank bottom space of the texture
-    
+    height: 36px !important;
     background-image: url("/wanderwood/static/grass-top.png") !important;
     background-repeat: repeat-x !important;
-    background-size: auto 128px !important; // Keeps original big pixel size
+    background-size: auto 128px !important;
     background-position: center top !important;
     image-rendering: pixelated !important;
     pointer-events: none !important;
@@ -92,40 +97,107 @@ div[id^="graph-"] {
 }
 
 // 4. Snug Padding to Pull Text Right Up to the Grass
-.explorer {
-  overflow: visible !important;
-  padding-top: 24px !important; // Scaled way down to close the gap
+// Convert Explorer into Horizontal Navbar
+.sidebar .explorer {
+  position: absolute !important;
+  top: 120px !important; // Sits flush right below the banner header
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  background-color: #1a2a40 !important; // Deep blue menu background matching reference
+  border-bottom: 3px solid #0d1726 !important;
+  padding: 0 1rem !important;
+  z-index: 500 !important;
 
-  button, 
-  .explorer-title, 
-  .folder-container, 
-  .file-link, 
-  ul, 
-  div,
-  span,
-  a {
-    position: relative !important;
-    z-index: 20 !important;
+  // Hide default Explorer header text & search bar inside bar
+  button.explorer-title, .search {
+    display: none !important;
+  }
+
+  // Top-level horizontal menu layout
+  ul.overflow {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+
+    // Top-Level Menu Items
+    > li {
+      position: relative !important;
+      
+      > .folder-container, > a {
+        padding: 10px 18px !important;
+        color: #ffffff !important;
+        font-weight: bold !important;
+        display: block !important;
+        white-space: nowrap !important;
+        cursor: pointer !important;
+
+        &:hover {
+          background-color: #0d5995 !important;
+        }
+      }
+
+      // First-level Dropdown (Vertical menu on hover)
+      > .folder-outer, > ul {
+        display: none !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        min-width: 180px !important;
+        background-color: #0e3a66 !important;
+        border: 1px solid #0b2745 !important;
+        box-shadow: 2px 4px 10px rgba(0,0,0,0.5) !important;
+        z-index: 600 !important;
+      }
+
+      &:hover > .folder-outer, &:hover > ul {
+        display: block !important;
+      }
+
+      // Nested Submenus (Fly-out to the right)
+      .folder-outer ul {
+        > li {
+          position: relative !important;
+          
+          > .folder-container, > a {
+            padding: 8px 14px !important;
+            color: #d1e8ff !important;
+            display: flex !important;
+            justify-content: space-between !important;
+
+            &:hover {
+              background-color: #0066b3 !important;
+              color: #ffffff !important;
+            }
+          }
+
+          // Next level fly-out box
+          > .folder-outer, > ul {
+            display: none !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 100% !important;
+            min-width: 180px !important;
+            background-color: #092847 !important;
+            border: 1px solid #05182d !important;
+          }
+
+          &:hover > .folder-outer, &:hover > ul {
+            display: block !important;
+          }
+        }
+      }
+    }
   }
 }
 
-.page > #quartz-body .center {
-  margin-top: 20px !important;
-  padding-top: 28px !important; // Scaled way down for main body text
-  
-  header, article, div {
-    position: relative !important;
-    z-index: 20 !important;
-  }
-}
-
-.sidebar .graph {
-  padding-top: 24px !important;
-  
-  * {
-    position: relative !important;
-    z-index: 20 !important;
-  }
+// Spacing adjustment for content below navbar
+.page > #quartz-body {
+  padding-top: 200px !important;
 }
 
 // 5. MOB BUDDY
