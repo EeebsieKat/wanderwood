@@ -51,3 +51,15 @@ Vanilla:
 ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/stick.png)
 ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/diamond.png)
 ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/block/oak_planks.png)
+
+Template testing:
+
+> [!recipe] Item Name Here
+> | | | | | |
+> |---|---|---|---|---|
+> | | | | | |
+> | | | | ➔ | <span data-count="1">![](https://static.vecteezy.com/system/resources/previews/012/909/727/non_2x/single-of-banana-png.png)</span> |
+> | | | | | |
+> 
+
+
