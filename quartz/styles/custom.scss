@@ -527,7 +527,7 @@ a.internal.tag-link {
         bottom: -6px !important;
         right: -8px !important;
         font-family: monospace !important;
-        font-size: 1.1em !important; // Larger Minecraft text size
+        font-size: 1.2em !important; // Larger Minecraft text size
         font-weight: bold !important;
         color: #ffffff !important;
         text-shadow: 2px 2px 0px #000000 !important;
@@ -562,5 +562,120 @@ a.internal.tag-link {
     image-rendering: crisp-edges !important;
     object-fit: contain !important;
     margin: 0 2px !important;
+  }
+}
+
+// ============================================================================
+// 10. Furnace / Processing Recipes ([!smelt])
+// ============================================================================
+
+.callout[data-callout="smelt"] {
+  background-color: var(--slot-bg) !important;
+  border: 3px solid var(--border-dark) !important;
+  box-shadow: 
+    inset 2px 2px 0px 0px var(--border-dark),
+    inset -2px -2px 0px 0px var(--border-light) !important;
+  padding: 12px 16px !important;
+  margin: 16px 0 !important;
+
+  .callout-title {
+    color: #ffaa00 !important;
+    font-weight: bold !important;
+    font-size: 1.1em !important;
+    text-shadow: 1px 1px 0px #000000 !important;
+    border-bottom: 2px solid var(--border-dark) !important;
+    padding-bottom: 6px !important;
+    margin-bottom: 10px !important;
+    
+    .callout-icon {
+      display: none !important;
+    }
+  }
+
+  table {
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+    background-color: transparent !important;
+    border: none !important;
+    margin: 12px 0 !important;
+
+    thead {
+      display: none !important;
+    }
+
+    tr {
+      background: transparent !important;
+    }
+
+    td {
+      width: 48px !important;
+      height: 48px !important;
+      text-align: center !important;
+      vertical-align: middle !important;
+      position: relative !important;
+
+      // Fuel & Input Slots (Column 1)
+      &:nth-child(1) {
+        background-color: #2b232e !important;
+        border: 2px solid var(--border-dark) !important;
+        box-shadow: inset 2px 2px 0px 0px #080609 !important;
+      }
+
+      // Flame/Arrow Indicators (Column 2)
+      &:nth-child(2) {
+        border: none !important;
+        background: transparent !important;
+        font-size: 1.6em !important;
+        padding: 0 12px !important;
+      }
+
+      // Output Slot (Column 3)
+      &:nth-child(3) {
+        background-color: #2b232e !important;
+        border: 2px solid var(--border-dark) !important;
+        box-shadow: inset 2px 2px 0px 0px #080609 !important;
+      }
+
+      img {
+        display: block !important;
+        margin: 0 auto !important;
+        width: 32px !important;
+        height: 32px !important;
+        image-rendering: pixelated !important;
+      }
+    }
+
+    // Hide unnecessary output cells for top/bottom empty rows
+    tr:nth-child(1) td:nth-child(3),
+    tr:nth-child(3) td:nth-child(3) {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+    }
+  }
+}
+
+// ============================================================================
+// 11. Required Tool Badges
+// ============================================================================
+
+.tool-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background-color: #2b232e !important;
+  border: 2px solid var(--border-dark) !important;
+  box-shadow: inset 1px 1px 0px 0px var(--border-light), inset -1px -1px 0px 0px #000000 !important;
+  padding: 4px 8px !important;
+  border-radius: 2px !important;
+  font-size: 0.85em !important;
+  font-weight: bold !important;
+  color: var(--darkgray) !important;
+  margin: 4px 2px !important;
+
+  img {
+    width: 20px !important;
+    height: 20px !important;
+    image-rendering: pixelated !important;
   }
 }
