@@ -1,53 +1,25 @@
 @use "./variables.scss" as *;
 
 // ============================================================================
-// 1. Root Overrides & Strict Anti-Purple Palette
+// 1. Constrain Banner to Main Panel Container Width
 // ============================================================================
-:root {
-  --light: #0d0b0e !important;               // Page backdrop
-  --lightgray: #1a151d !important;           // Panel divides
-  --gray: #6a5d70 !important;                // Muted text
-  --darkgray: #d0c8d6 !important;           // Main readable body text
-  --dark: #ffffff !important;               // Headers
-  
-  --secondary: #55aa22 !important;          // Minecraft Grass Green (Replaces all purple)
-  --tertiary: #66cc22 !important;           // Hover Green
-  --highlight: rgba(85, 170, 34, 0.2) !important;
-  --textHighlight: rgba(85, 170, 34, 0.25) !important;
-
-  --panel-bg: #1e1920 !important;          // Main UI Container Slate
-  --slot-bg: #120e14 !important;           // Inset Box Fill
-  --border-light: #483c4d !important;       // Bevel Highlight (Top/Left)
-  --border-dark: #080609 !important;        // Bevel Shadow (Bottom/Right)
-  
-  --mc-green: #3c8527 !important;
-  --mc-green-hover: #47a02e !important;
-  --mc-green-border: #1e4712 !important;
+.page {
+  max-width: 1200px !important; // Matches your 3-panel total width grid
+  margin: 0 auto !important;
+  position: relative !important;
 }
 
-// Global reset: Absolute ban on rounded corners and dark purple fills
-*, *::before, *::after {
-  border-radius: 0px !important;
-}
-
-html, body {
-  background-color: var(--light) !important;
-  color: var(--darkgray) !important;
-  image-rendering: pixelated !important;
-}
-
-// ============================================================================
-// 2. Header Banner
-// ============================================================================
 .page > #quartz-body {
   position: relative !important;
-  padding-top: 140px !important;
+  padding-top: 130px !important; // Clears room for the header banner inside container
 
+  // Constrained Header background
   &::before {
     content: "" !important;
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
+    right: 0 !important;
     width: 100% !important;
     height: 110px !important;
     background-image: url("/wanderwood/static/header-bg.gif") !important;
@@ -55,18 +27,19 @@ html, body {
     background-position: center !important;
     background-size: cover !important;
     filter: blur(4px) !important;
-    transform: scale(1.05) !important;
-    overflow: hidden !important;
     clip-path: inset(0) !important;
-    border-bottom: 3px solid #000000 !important;
+    border: 3px solid var(--border-dark) !important;
+    box-shadow: inset -2px -2px 0px 0px var(--border-light) !important;
     z-index: 10 !important;
   }
 
+  // Constrained Logo Banner Overlay
   &::after {
     content: "" !important;
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
+    right: 0 !important;
     width: 100% !important;
     height: 110px !important;
     background-image: url("/wanderwood/static/wanderwood-banner.png") !important;
@@ -78,10 +51,42 @@ html, body {
   }
 }
 
-.sidebar .page-title {
-  display: none !important;
+// ============================================================================
+// 2. Explorer Container & Background Alignment Fix
+// ============================================================================
+.explorer,
+.explorer-content,
+#explorer-content,
+.folder-outer,
+.folder-container {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding-left: 0 !important;
+  margin-left: 0 !important;
 }
 
+// Active link fix inside Explorer
+.explorer {
+  ul {
+    list-style: none !important;
+    padding-left: 12px !important;
+  }
+
+  // Active page item alignment
+  .file-link.active,
+  .file-link[aria-current="page"] {
+    background-color: var(--slot-bg) !important;
+    border: 2px solid #000000 !important;
+    box-shadow: inset 2px 2px 0px 0px var(--border-dark) !important;
+    border-left: 3px solid var(--secondary) !important;
+    color: #ffffff !important;
+    display: block !important;
+    padding: 2px 6px !important;
+    margin: 2px 0 !important;
+  }
+}
 // ============================================================================
 // 3. ICHOR Beveled Main Panels
 // ============================================================================
