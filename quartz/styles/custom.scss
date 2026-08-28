@@ -8,12 +8,12 @@ html, body, page, div.page, #quartz-body {
   image-rendering: pixelated !important;
 }
 
-// 2. Top Banner Header (Blurred GIF Background + Crisp Logo Overlay)
+// 2. Top Banner Header (Crisp Edges + Blurred GIF Background + Crisp Logo)
 .page > #quartz-body {
   position: relative !important;
   padding-top: 150px !important;
 
-  // Layer 1: Blurred GIF Background
+  // Layer 1: Blurred GIF Background Container (Clips soft blurred edges)
   &::before {
     content: "" !important;
     position: absolute !important;
@@ -27,9 +27,12 @@ html, body, page, div.page, #quartz-body {
     background-position: center center !important;
     background-size: cover !important;
 
-    filter: blur(4px) !important;
-    transform: scale(1.02) !important; // Prevents blurred edge clipping
+    filter: blur(6px) !important;
+    transform: scale(1.1) !important; // Over-scales slightly inside clip area
 
+    // Crisp clipping & borders
+    overflow: hidden !important;
+    clip-path: inset(0) !important; // Hard clip mask to enforce sharp edges
     border-bottom: 4px solid #101010 !important;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5) !important;
     z-index: 10 !important;
@@ -48,10 +51,10 @@ html, body, page, div.page, #quartz-body {
     background-repeat: no-repeat !important;
     background-position: center center !important;
     background-size: contain !important;
-    image-rendering: pixelated !important; // Keeps logo pixels sharp
+    image-rendering: pixelated !important;
 
     pointer-events: none !important;
-    z-index: 11 !important; // Sits above the blurred background
+    z-index: 11 !important;
   }
 }
 
