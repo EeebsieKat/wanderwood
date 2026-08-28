@@ -107,14 +107,20 @@ html, body {
 
     // Panels
     & .center {
-      background-color: var(--panel-bg) !important;
-      border: 3px solid var(--border-dark) !important;
-      box-shadow: 
+    background-color: var(--panel-bg) !important;
+    border: 3px solid var(--border-dark) !important;
+    box-shadow: 
         inset -2px -2px 0px 0px var(--border-light),
         inset 2px 2px 0px 0px var(--border-dark),
         0px 4px 12px rgba(0,0,0,0.6) !important;
-      padding: 32px !important;
-      min-height: calc(100vh - 180px) !important;
+    padding: 16px 24px 24px 24px !important; // Reduced top padding from 32px to 16px
+    min-height: calc(100vh - 180px) !important;
+
+    // Remove empty header margin inside the article card
+    .page-header {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
     }
 
     & .sidebar.left,
@@ -175,6 +181,21 @@ html, body {
     color: var(--secondary) !important;
   }
 
+  &::before {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: -30px !important;
+    right: 8px !important;
+    width: 32px !important;
+    height: 32px !important;
+    background-image: url("/wanderwood/static/mob-buddy-frog.gif") !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    pointer-events: none !important;
+    z-index: 20 !important;
+  }
+
   .file-link.active,
   .file-link[aria-current="page"] {
     background-color: var(--slot-bg) !important;
@@ -186,20 +207,6 @@ html, body {
     padding: 3px 6px !important;
     margin: 2px 0 !important;
   }
-}
-
-.explorer::before {
-  content: "" !important;
-  display: block !important;
-  position: absolute !important;
-  top: -36px !important;
-  right: 8px !important;
-  width: 32px !important;
-  height: 32px !important;
-  background-image: url("/wanderwood/static/mob-buddy-frog.gif") !important;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  pointer-events: none !important;
 }
 
 // ============================================================================
