@@ -1,16 +1,18 @@
-> [!recipe] Crafting Table
+> [!recipe] Glowroot Wolf Collar
 > | | | |
 > |---|---|---|
-> | 🪵 Wood | 🪵 Wood | |
-> | 🪵 Wood | 🪵 Wood | |
-> **Result:** 1x Crafting Table 🛠️
+> | ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/string.png) | ![](https://raw.githubusercontent.com/EeebsieKat/Wanderwood/main/quartz/static/glowroot-collar.png) | ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/string.png) |
+> | | ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/leather.png) | |
+> | | | |
+> **Result:** 1x Glowroot Wolf Collar
+
 
 > [!item] Glowroot Wolf Collar
+> ![](https://raw.githubusercontent.com/EeebsieKat/Wanderwood/main/quartz/static/glowroot-collar.png)
 > **Rarity:** Uncommon  
-> **Type:** Armor / Accessory  
-> *Emits a gentle 5-block radius light level when worn by a tamed wolf.*
+> **Type:** Accessory  
+> *Emits a gentle light around tamed wolves.*
 
 ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/stick.png)
 ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/diamond.png)
 ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/block/oak_planks.png)
-![](https://raw.githubusercontent.com/EeebsieKat/Wanderwood/main/quartz/static/glowroot-collar.png)
