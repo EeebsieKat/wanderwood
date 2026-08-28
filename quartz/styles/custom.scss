@@ -390,17 +390,3 @@ div[id^="graph-"],
   border-radius: 2px !important;
   color: #ffffff !important;
 }
-
-// 2. Graph View Expansion & Full Height Layout
-.sidebar .graph {
-  display: flex !important;
-  flex-direction: column !important;
-  height: calc(100% - 32px) !important;
-  min-height: 400px !important;
-  padding-top: 24px !important; // Fits under inner grass cap
-}
-
-.graph-title {
-  margin-bottom: 8px !important;
-  font-weight: bold !important;
-}
