@@ -1,26 +1,35 @@
 @use "./variables.scss" as *;
 
 // ============================================================================
-// 1. ICHOR Theme Palette & In-Game UI Box-Shadows
+// 1. Root Overrides & Strict Anti-Purple Palette
 // ============================================================================
 :root {
-  --light: #0d0b0e !important;               // Outer space background
-  --panel-bg: #1e1920 !important;          // Container fill
-  --slot-bg: #120e14 !important;           // Inset search/code background
-  --border-light: #483c4d !important;       // Bevel highlight (Top/Left)
-  --border-dark: #100b14 !important;        // Bevel shadow (Bottom/Right)
+  --light: #0d0b0e !important;               // Page backdrop
+  --lightgray: #1a151d !important;           // Panel divides
+  --gray: #6a5d70 !important;                // Muted text
+  --darkgray: #d0c8d6 !important;           // Main readable body text
+  --dark: #ffffff !important;               // Headers
   
-  --mc-green: #3c8527 !important;          // Minecraft Button Green
-  --mc-green-hover: #47a02e !important;    // Hover Green
-  --mc-green-border: #1e4712 !important;
+  --secondary: #55aa22 !important;          // Minecraft Grass Green (Replaces all purple)
+  --tertiary: #66cc22 !important;           // Hover Green
+  --highlight: rgba(85, 170, 34, 0.2) !important;
+  --textHighlight: rgba(85, 170, 34, 0.25) !important;
 
-  --darkgray: #d0c8d6 !important;           // Clean body text
-  --dark: #ffffff !important;               // Crisp headers
-  --secondary: #55aa22 !important;          // Accent link color
-  --tertiary: #66cc22 !important;
+  --panel-bg: #1e1920 !important;          // Main UI Container Slate
+  --slot-bg: #120e14 !important;           // Inset Box Fill
+  --border-light: #483c4d !important;       // Bevel Highlight (Top/Left)
+  --border-dark: #080609 !important;        // Bevel Shadow (Bottom/Right)
+  
+  --mc-green: #3c8527 !important;
+  --mc-green-hover: #47a02e !important;
+  --mc-green-border: #1e4712 !important;
 }
 
-// Global reset to dark UI slate
+// Global reset: Absolute ban on rounded corners and dark purple fills
+*, *::before, *::after {
+  border-radius: 0px !important;
+}
+
 html, body {
   background-color: var(--light) !important;
   color: var(--darkgray) !important;
@@ -74,23 +83,22 @@ html, body {
 }
 
 // ============================================================================
-// 3. ICHOR Style Inset Panels (Container Framing)
+// 3. ICHOR Beveled Main Panels
 // ============================================================================
 
-// Main Article Center Panel
+// Main Article Center Container
 .page > #quartz-body .center {
   background-color: var(--panel-bg) !important;
   border: 3px solid var(--border-dark) !important;
-  // Authentic 3D Inset Beveling
   box-shadow: 
     inset -2px -2px 0px 0px var(--border-light),
-    inset 2px 2px 0px 0px #080609,
+    inset 2px 2px 0px 0px var(--border-dark),
     0px 4px 12px rgba(0,0,0,0.6) !important;
   padding: 32px !important;
   min-height: calc(100vh - 180px) !important;
 }
 
-// Left & Right Sidebars
+// Sidebars
 .sidebar.left,
 .sidebar.right {
   position: sticky !important;
@@ -100,7 +108,7 @@ html, body {
   border: 3px solid var(--border-dark) !important;
   box-shadow: 
     inset -2px -2px 0px 0px var(--border-light),
-    inset 2px 2px 0px 0px #080609 !important;
+    inset 2px 2px 0px 0px var(--border-dark) !important;
   padding: 16px !important;
   overflow-y: auto !important;
 }
@@ -116,10 +124,10 @@ div[id^="graph-"] {
 }
 
 // ============================================================================
-// 4. In-Game Minecraft GUI Buttons & Search Inputs
+// 4. Inset Slots & In-Game GUI Elements
 // ============================================================================
 
-// Search Input (Inset Item Slot Style)
+// Search Bar (Slot Style)
 .search {
   margin-bottom: 16px !important;
 
@@ -128,13 +136,12 @@ div[id^="graph-"] {
     background-color: var(--slot-bg) !important;
     color: #ffffff !important;
     border: 2px solid #000000 !important;
-    box-shadow: inset 2px 2px 0px 0px #080609, inset -1px -1px 0px 0px var(--border-light) !important;
-    border-radius: 0px !important;
+    box-shadow: inset 2px 2px 0px 0px var(--border-dark), inset -1px -1px 0px 0px var(--border-light) !important;
     padding: 8px 12px !important;
     font-family: monospace !important;
 
     &::placeholder {
-      color: #6a5d70 !important;
+      color: var(--gray) !important;
     }
 
     &:focus {
@@ -144,15 +151,14 @@ div[id^="graph-"] {
   }
 }
 
-// Tag Buttons Styled Like ICHOR "+ Add" Buttons
+// Tag Buttons (ICHOR raised 3D green button style)
 a.internal.tag-link {
   display: inline-block !important;
   background-color: var(--mc-green) !important;
   color: #ffffff !important;
   border: 2px solid var(--mc-green-border) !important;
   box-shadow: inset 1px 1px 0px 0px #63b342, inset -1px -1px 0px 0px #245217 !important;
-  border-radius: 0px !important;
-  padding: 4px 10px !important;
+  padding: 3px 8px !important;
   font-size: 0.85em !important;
   font-weight: bold !important;
   text-shadow: 1px 1px 0px #000000 !important;
@@ -164,6 +170,30 @@ a.internal.tag-link {
 
   &[href*="blocks"]::before { content: "⚒️ "; }
   &[href*="core"]::before { content: "📜 "; }
+}
+
+// Inline Document Links (Replaces default yellow/purple pill background)
+a.internal:not(.tag-link) {
+  background-color: rgba(85, 170, 34, 0.15) !important;
+  color: #8be645 !important;
+  border: 1px solid rgba(85, 170, 34, 0.4) !important;
+  padding: 1px 5px !important;
+  font-weight: 600 !important;
+
+  &:hover {
+    background-color: rgba(85, 170, 34, 0.3) !important;
+    color: #ffffff !important;
+  }
+}
+
+// Breadcrumbs Recolor (Kills residual purple text)
+.breadcrumb-element, 
+.breadcrumb-element a {
+  color: var(--gray) !important;
+  
+  &:hover {
+    color: var(--secondary) !important;
+  }
 }
 
 // ============================================================================
@@ -186,16 +216,19 @@ a.internal.tag-link {
     color: var(--secondary) !important;
   }
 
+  // Active page highlight in sidebar
   .file-link.active,
   .file-link[aria-current="page"] {
-    background-color: rgba(85, 170, 34, 0.2) !important;
+    background-color: var(--slot-bg) !important;
+    border: 2px solid #000000 !important;
+    box-shadow: inset 2px 2px 0px 0px var(--border-dark) !important;
     border-left: 3px solid var(--secondary) !important;
     color: #ffffff !important;
     padding-left: 6px !important;
   }
 }
 
-// Frog Mob Buddy sitting on top of Explorer frame
+// Frog Mob Buddy sitting on Explorer
 .explorer::before {
   content: "" !important;
   display: block !important;
@@ -222,7 +255,7 @@ a[data-for="Blocks"],
 }
 
 // ============================================================================
-// 6. Interactive Graph View
+// 6. Interactive Graph View (Inset Box Style)
 // ============================================================================
 .sidebar .graph {
   margin-top: 16px !important;
@@ -238,6 +271,9 @@ div[id^="graph-"],
 .graph-view-container {
   width: 100% !important;
   height: 240px !important;
+  background-color: var(--slot-bg) !important;
+  border: 2px solid #000000 !important;
+  box-shadow: inset 2px 2px 0px 0px var(--border-dark) !important;
 
   svg {
     width: 100% !important;
@@ -267,12 +303,11 @@ article {
   code, pre {
     background-color: var(--slot-bg) !important;
     border: 2px solid #000000 !important;
-    box-shadow: inset 2px 2px 0px 0px #080609 !important;
-    border-radius: 0px !important;
+    box-shadow: inset 2px 2px 0px 0px var(--border-dark) !important;
   }
 }
 
-// In-Game Pixel Scrollbars
+// Pixelated In-Game Scrollbars
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
