@@ -365,3 +365,59 @@ div[id^="graph-"],
     background: transparent !important;
   }
 }
+
+// 1. Text & UI recolor using the lighter blackstone brick face color (#38323e)
+.explorer,
+.explorer *,
+.explorer a,
+.explorer span,
+.graph-title,
+.search-button {
+  color: #38323e !important;
+  fill: #38323e !important;
+}
+
+// Hover state for Explorer links
+.explorer a:hover,
+.explorer .folder-container:hover {
+  color: #ffffff !important;
+}
+
+// Active/Selected file highlight in Explorer
+.explorer .file-link.active,
+.explorer .file-link[aria-current="page"] {
+  background-color: rgba(0, 0, 0, 0.25) !important;
+  border-radius: 2px !important;
+  color: #ffffff !important;
+}
+
+// 2. Graph View Expansion & Full Height Layout
+.sidebar .graph {
+  display: flex !important;
+  flex-direction: column !important;
+  height: calc(100% - 32px) !important;
+  min-height: 400px !important;
+  padding-top: 24px !important; // Fits under inner grass cap
+}
+
+.graph-title {
+  margin-bottom: 8px !important;
+  font-weight: bold !important;
+}
+
+// Force SVG canvas to stretch and fill entire dirt container
+.graph-outer,
+div[id^="graph-"],
+.graph-container {
+  flex-grow: 1 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 350px !important;
+  background: transparent !important;
+
+  svg {
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+  }
+}
