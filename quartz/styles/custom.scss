@@ -1,24 +1,46 @@
 @use "./variables.scss" as *;
 
 // ============================================================================
-// 1. Root Overrides & Strict Anti-Purple Palette
+// 1. Theme Palette (Dark Mode & Light Mode GUI Overrides)
 // ============================================================================
-:root {
-  --light: #0d0b0e !important;               // Page backdrop
+
+// --- Dark Mode Palette (Default) ---
+:root, [saved-theme="dark"] {
+  --light: #0d0b0e !important;               // Backdrop
   --lightgray: #1a151d !important;           // Panel divides
   --gray: #6a5d70 !important;                // Muted text
-  --darkgray: #d0c8d6 !important;           // Main readable body text
+  --darkgray: #d0c8d6 !important;           // Body text
   --dark: #ffffff !important;               // Headers
   
+  --panel-bg: #1e1920 !important;          // UI Container Slate
+  --slot-bg: #120e14 !important;           // Inset slot fill
+  --border-light: #483c4d !important;       // Bevel Highlight
+  --border-dark: #080609 !important;        // Bevel Shadow
+
+  --graph-line: rgba(255, 255, 255, 0.75) !important; // Crisp white graph lines
+}
+
+// --- Light Mode Palette (Classic Minecraft Stone GUI Theme) ---
+[saved-theme="light"] {
+  --light: #2c2930 !important;               // Keep outer backdrop dark/rich
+  --lightgray: #8b8b8b !important;
+  --gray: #4a4a4a !important;
+  --darkgray: #1e1e1e !important;           // Dark text for light containers
+  --dark: #000000 !important;
+
+  --panel-bg: #c6c6c6 !important;          // Classic Minecraft In-Game GUI Grey
+  --slot-bg: #8b8b8b !important;           // Inset Slot Grey
+  --border-light: #ffffff !important;       // 3D White Bevel Highlight
+  --border-dark: #555555 !important;        // 3D Dark Bevel Shadow
+
+  --graph-line: rgba(0, 0, 0, 0.6) !important;
+}
+
+:root {
   --secondary: #55aa22 !important;          // Minecraft Grass Green
   --tertiary: #66cc22 !important;           // Hover Green
   --highlight: rgba(85, 170, 34, 0.2) !important;
   --textHighlight: rgba(85, 170, 34, 0.25) !important;
-
-  --panel-bg: #1e1920 !important;          // Main UI Container Slate
-  --slot-bg: #120e14 !important;           // Inset Box Fill
-  --border-light: #483c4d !important;       // Bevel Highlight (Top/Left)
-  --border-dark: #080609 !important;        // Bevel Shadow (Bottom/Right)
   
   --mc-green: #3c8527 !important;
   --mc-green-hover: #47a02e !important;
@@ -37,10 +59,10 @@ html, body {
 }
 
 // ============================================================================
-// 2. Main Page Layout & Constrained Header Banner
+// 2. Layout & Constrained Header Banner
 // ============================================================================
 .page {
-  max-width: 1200px !important; // Fits the 3 panels tight
+  max-width: 1200px !important;
   margin: 0 auto !important;
   position: relative !important;
 
@@ -48,7 +70,6 @@ html, body {
     position: relative !important;
     padding-top: 130px !important;
 
-    // Header background (Restricted to container width)
     &::before {
       content: "" !important;
       position: absolute !important;
@@ -68,7 +89,6 @@ html, body {
       z-index: 10 !important;
     }
 
-    // Centered Banner Logo
     &::after {
       content: "" !important;
       position: absolute !important;
@@ -85,11 +105,7 @@ html, body {
       z-index: 11 !important;
     }
 
-    // ============================================================================
-    // 3. ICHOR Beveled Main Panels
-    // ============================================================================
-
-    // Main Article Center Panel
+    // Panels
     & .center {
       background-color: var(--panel-bg) !important;
       border: 3px solid var(--border-dark) !important;
@@ -101,7 +117,6 @@ html, body {
       min-height: calc(100vh - 180px) !important;
     }
 
-    // Sidebars
     & .sidebar.left,
     & .sidebar.right {
       position: sticky !important;
@@ -123,7 +138,7 @@ html, body {
 }
 
 // ============================================================================
-// 4. Explorer Container & Background Alignment Fix
+// 3. Explorer Tree Alignment Fix
 // ============================================================================
 .explorer,
 .explorer-content,
@@ -144,7 +159,7 @@ html, body {
   .explorer-title, button {
     color: var(--dark) !important;
     font-weight: bold !important;
-    text-shadow: 1px 1px 0px #000000 !important;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.4) !important;
   }
 
   ul {
@@ -160,21 +175,19 @@ html, body {
     color: var(--secondary) !important;
   }
 
-  // Active document highlight in Explorer
   .file-link.active,
   .file-link[aria-current="page"] {
     background-color: var(--slot-bg) !important;
     border: 2px solid #000000 !important;
     box-shadow: inset 2px 2px 0px 0px var(--border-dark) !important;
     border-left: 3px solid var(--secondary) !important;
-    color: #ffffff !important;
+    color: var(--dark) !important;
     display: block !important;
     padding: 3px 6px !important;
     margin: 2px 0 !important;
   }
 }
 
-// Frog Mob Buddy sitting on Explorer
 .explorer::before {
   content: "" !important;
   display: block !important;
@@ -190,80 +203,35 @@ html, body {
 }
 
 // ============================================================================
-// 5. Inset Slots, Buttons & Breadcrumbs
+// 4. In-Game Minecraft Green Search Bar
 // ============================================================================
-
-// Search Bar (Slot Style)
 .search {
   margin-bottom: 16px !important;
 
   input[type="text"],
   #search-bar {
-    background-color: var(--slot-bg) !important;
+    background-color: var(--mc-green) !important;
     color: #ffffff !important;
-    border: 2px solid #000000 !important;
-    box-shadow: inset 2px 2px 0px 0px var(--border-dark), inset -1px -1px 0px 0px var(--border-light) !important;
+    border: 2px solid var(--mc-green-border) !important;
+    box-shadow: inset 2px 2px 0px 0px #63b342, inset -2px -2px 0px 0px #245217 !important;
     padding: 8px 12px !important;
     font-family: monospace !important;
+    font-weight: bold !important;
+    text-shadow: 1px 1px 0px #000000 !important;
 
     &::placeholder {
-      color: var(--gray) !important;
+      color: #d0edd0 !important;
     }
 
     &:focus {
-      border-color: var(--secondary) !important;
+      background-color: var(--mc-green-hover) !important;
       outline: none !important;
     }
   }
 }
 
-// Tag Buttons (ICHOR raised 3D green button style)
-a.internal.tag-link {
-  display: inline-block !important;
-  background-color: var(--mc-green) !important;
-  color: #ffffff !important;
-  border: 2px solid var(--mc-green-border) !important;
-  box-shadow: inset 1px 1px 0px 0px #63b342, inset -1px -1px 0px 0px #245217 !important;
-  padding: 3px 8px !important;
-  font-size: 0.85em !important;
-  font-weight: bold !important;
-  text-shadow: 1px 1px 0px #000000 !important;
-
-  &:hover {
-    background-color: var(--mc-green-hover) !important;
-    color: #ffffff !important;
-  }
-
-  &[href*="blocks"]::before { content: "⚒️ "; }
-  &[href*="core"]::before { content: "📜 "; }
-}
-
-// Inline Document Links
-a.internal:not(.tag-link) {
-  background-color: rgba(85, 170, 34, 0.15) !important;
-  color: #8be645 !important;
-  border: 1px solid rgba(85, 170, 34, 0.4) !important;
-  padding: 1px 5px !important;
-  font-weight: 600 !important;
-
-  &:hover {
-    background-color: rgba(85, 170, 34, 0.3) !important;
-    color: #ffffff !important;
-  }
-}
-
-// Breadcrumb Links
-.breadcrumb-element, 
-.breadcrumb-element a {
-  color: var(--gray) !important;
-  
-  &:hover {
-    color: var(--secondary) !important;
-  }
-}
-
 // ============================================================================
-// 6. Interactive Graph View
+// 5. Interactive Graph View (Bright White Lines Fix)
 // ============================================================================
 .sidebar .graph {
   margin-top: 16px !important;
@@ -293,21 +261,65 @@ div[id^="graph-"],
       fill: var(--secondary) !important;
       stroke: var(--tertiary) !important;
     }
+    // Boosted white line visibility
     line {
-      stroke: rgba(85, 170, 34, 0.3) !important;
+      stroke: var(--graph-line) !important;
+      stroke-width: 1.5px !important;
     }
   }
 }
 
 // ============================================================================
-// 7. Typography, Code Blocks & Scrollbars
+// 6. Typography, Buttons, Code Blocks & Scrollbars
 // ============================================================================
+a.internal.tag-link {
+  display: inline-block !important;
+  background-color: var(--mc-green) !important;
+  color: #ffffff !important;
+  border: 2px solid var(--mc-green-border) !important;
+  box-shadow: inset 1px 1px 0px 0px #63b342, inset -1px -1px 0px 0px #245217 !important;
+  padding: 3px 8px !important;
+  font-size: 0.85em !important;
+  font-weight: bold !important;
+  text-shadow: 1px 1px 0px #000000 !important;
+
+  &:hover {
+    background-color: var(--mc-green-hover) !important;
+    color: #ffffff !important;
+  }
+
+  &[href*="blocks"]::before { content: "⚒️ "; }
+  &[href*="core"]::before { content: "📜 "; }
+}
+
+a.internal:not(.tag-link) {
+  background-color: rgba(85, 170, 34, 0.15) !important;
+  color: #8be645 !important;
+  border: 1px solid rgba(85, 170, 34, 0.4) !important;
+  padding: 1px 5px !important;
+  font-weight: 600 !important;
+
+  &:hover {
+    background-color: rgba(85, 170, 34, 0.3) !important;
+    color: #ffffff !important;
+  }
+}
+
+.breadcrumb-element, 
+.breadcrumb-element a {
+  color: var(--gray) !important;
+  
+  &:hover {
+    color: var(--secondary) !important;
+  }
+}
+
 article {
   h1, h2, h3, h4, h5, h6 {
     color: var(--dark) !important;
     border-bottom: 2px solid var(--border-dark) !important;
     padding-bottom: 4px !important;
-    text-shadow: 1px 1px 0px #000000 !important;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.4) !important;
   }
 
   code, pre {
@@ -317,7 +329,6 @@ article {
   }
 }
 
-// Pixelated In-Game Scrollbars
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
