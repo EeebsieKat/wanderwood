@@ -404,20 +404,3 @@ div[id^="graph-"],
   margin-bottom: 8px !important;
   font-weight: bold !important;
 }
-
-// Force SVG canvas to stretch and fill entire dirt container
-.graph-outer,
-div[id^="graph-"],
-.graph-container {
-  flex-grow: 1 !important;
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 350px !important;
-  background: transparent !important;
-
-  svg {
-    width: 100% !important;
-    height: 100% !important;
-    background: transparent !important;
-  }
-}
