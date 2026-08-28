@@ -25,7 +25,7 @@
 > | | | |
 > |---|---|---|
 > | ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/block/iron_ore.png) | | |
-> | | 🔥 | ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/iron_ingot.png) |
+> | <span class="mc-flame"></span> | ➔ | ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/iron_ingot.png) |
 > | ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/coal.png) | | |
 > 
 

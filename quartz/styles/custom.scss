@@ -569,6 +569,24 @@ a.internal.tag-link {
 // 10. Furnace / Processing Recipes ([!smelt])
 // ============================================================================
 
+// Animated Minecraft Fire Sprite
+@keyframes mc-fire-burn {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 -512px; } // Cycles through the 32-frame vertical sprite sheet
+}
+
+.mc-flame {
+  display: inline-block !important;
+  width: 32px !important;
+  height: 32px !important;
+  background-image: url("https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/block/fire_0.png") !important;
+  background-size: 32px 512px !important;
+  background-repeat: no-repeat !important;
+  image-rendering: pixelated !important;
+  image-rendering: crisp-edges !important;
+  animation: mc-fire-burn 1.5s steps(32) infinite !important;
+}
+
 .callout[data-callout="smelt"] {
   background-color: var(--slot-bg) !important;
   border: 3px solid var(--border-dark) !important;
@@ -598,6 +616,7 @@ a.internal.tag-link {
     background-color: transparent !important;
     border: none !important;
     margin: 12px 0 !important;
+    table-layout: fixed !important;
 
     thead {
       display: none !important;
@@ -610,30 +629,35 @@ a.internal.tag-link {
     td {
       width: 48px !important;
       height: 48px !important;
+      min-width: 48px !important;
+      max-width: 48px !important;
+      aspect-ratio: 1 / 1 !important;
       text-align: center !important;
       vertical-align: middle !important;
       position: relative !important;
 
-      // Fuel & Input Slots (Column 1)
+      // Top (Input) and Bottom (Fuel) Slots in Column 1
       &:nth-child(1) {
         background-color: #2b232e !important;
         border: 2px solid var(--border-dark) !important;
         box-shadow: inset 2px 2px 0px 0px #080609 !important;
       }
 
-      // Flame/Arrow Indicators (Column 2)
+      // Arrow Column (Column 2)
       &:nth-child(2) {
         border: none !important;
         background: transparent !important;
-        font-size: 1.6em !important;
-        padding: 0 12px !important;
+        font-size: 1.8em !important;
+        color: var(--gray) !important;
+        padding: 0 10px !important;
+        text-shadow: 1px 1px 0px #000000 !important;
       }
 
-      // Output Slot (Column 3)
+      // Output Column (Column 3)
       &:nth-child(3) {
-        background-color: #2b232e !important;
-        border: 2px solid var(--border-dark) !important;
-        box-shadow: inset 2px 2px 0px 0px #080609 !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
       }
 
       img {
@@ -645,12 +669,18 @@ a.internal.tag-link {
       }
     }
 
-    // Hide unnecessary output cells for top/bottom empty rows
-    tr:nth-child(1) td:nth-child(3),
-    tr:nth-child(3) td:nth-child(3) {
+    // Hide slot styling on the middle row of Column 1 (where the fire sits)
+    tr:nth-child(2) td:nth-child(1) {
       background: transparent !important;
       border: none !important;
       box-shadow: none !important;
+    }
+
+    // Show output slot ONLY on middle row of Column 3
+    tr:nth-child(2) td:nth-child(3) {
+      background-color: #2b232e !important;
+      border: 2px solid var(--border-dark) !important;
+      box-shadow: inset 2px 2px 0px 0px #080609 !important;
     }
   }
 }
