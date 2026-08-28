@@ -455,7 +455,7 @@ a.internal.tag-link {
   }
 }
 
-// Crafting Table Grid (With Side Output Slot & Stack Numbers)
+// Crafting Table Grid (Single Output Slot, Lightened Background, Pixel Stack Numbers)
 .callout[data-callout="recipe"] table {
   border-collapse: separate !important;
   border-spacing: 0 !important;
@@ -485,26 +485,26 @@ a.internal.tag-link {
 
     // Standard 3x3 Grid Slots (Columns 1 to 3)
     &:nth-child(-n+3) {
-      background-color: var(--slot-bg) !important;
+      background-color: #2b232e !important; // Lightened slot fill
       border: 2px solid var(--border-dark) !important;
-      box-shadow: inset 2px 2px 0px 0px #000000 !important;
+      box-shadow: inset 2px 2px 0px 0px #080609 !important;
     }
 
     // Arrow Column (Column 4)
     &:nth-child(4) {
       background: transparent !important;
       border: none !important;
-      font-size: 1.6em !important;
+      font-size: 1.8em !important;
       color: var(--gray) !important;
-      padding: 0 8px !important;
+      padding: 0 10px !important;
       text-shadow: 1px 1px 0px #000000 !important;
     }
 
-    // Output Slot (Column 5)
+    // Output Column (Column 5) - Only show slot on middle row (tr:nth-child(2))
     &:nth-child(5) {
-      background-color: var(--slot-bg) !important;
-      border: 2px solid var(--border-dark) !important;
-      box-shadow: inset 2px 2px 0px 0px #000000 !important;
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
     }
 
     img {
@@ -516,7 +516,7 @@ a.internal.tag-link {
       image-rendering: crisp-edges !important;
     }
 
-    // Stack Count Badge Overlay
+    // Stack Count Overlay
     span[data-count] {
       position: relative !important;
       display: inline-block !important;
@@ -524,16 +524,24 @@ a.internal.tag-link {
       &::after {
         content: attr(data-count) !important;
         position: absolute !important;
-        bottom: -2px !important;
-        right: -2px !important;
+        bottom: -6px !important;
+        right: -8px !important;
         font-family: monospace !important;
-        font-size: 0.85em !important;
+        font-size: 1.1em !important; // Larger Minecraft text size
         font-weight: bold !important;
         color: #ffffff !important;
         text-shadow: 2px 2px 0px #000000 !important;
         pointer-events: none !important;
+        z-index: 5 !important;
       }
     }
+  }
+
+  // Middle row output slot styling
+  tr:nth-child(2) td:nth-child(5) {
+    background-color: #2b232e !important; // Lightened slot fill
+    border: 2px solid var(--border-dark) !important;
+    box-shadow: inset 2px 2px 0px 0px #080609 !important;
   }
 }
 
