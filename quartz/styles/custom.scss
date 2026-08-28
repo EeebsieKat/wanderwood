@@ -1,58 +1,129 @@
 @use "./variables.scss" as *;
 
 // ============================================================================
-// 1. Constrain Banner to Main Panel Container Width
+// 1. Root Overrides & Strict Anti-Purple Palette
+// ============================================================================
+:root {
+  --light: #0d0b0e !important;               // Page backdrop
+  --lightgray: #1a151d !important;           // Panel divides
+  --gray: #6a5d70 !important;                // Muted text
+  --darkgray: #d0c8d6 !important;           // Main readable body text
+  --dark: #ffffff !important;               // Headers
+  
+  --secondary: #55aa22 !important;          // Minecraft Grass Green
+  --tertiary: #66cc22 !important;           // Hover Green
+  --highlight: rgba(85, 170, 34, 0.2) !important;
+  --textHighlight: rgba(85, 170, 34, 0.25) !important;
+
+  --panel-bg: #1e1920 !important;          // Main UI Container Slate
+  --slot-bg: #120e14 !important;           // Inset Box Fill
+  --border-light: #483c4d !important;       // Bevel Highlight (Top/Left)
+  --border-dark: #080609 !important;        // Bevel Shadow (Bottom/Right)
+  
+  --mc-green: #3c8527 !important;
+  --mc-green-hover: #47a02e !important;
+  --mc-green-border: #1e4712 !important;
+}
+
+// Global reset: Absolute ban on rounded corners
+*, *::before, *::after {
+  border-radius: 0px !important;
+}
+
+html, body {
+  background-color: var(--light) !important;
+  color: var(--darkgray) !important;
+  image-rendering: pixelated !important;
+}
+
+// ============================================================================
+// 2. Main Page Layout & Constrained Header Banner
 // ============================================================================
 .page {
-  max-width: 1200px !important; // Matches your 3-panel total width grid
+  max-width: 1200px !important; // Fits the 3 panels tight
   margin: 0 auto !important;
   position: relative !important;
+
+  & > #quartz-body {
+    position: relative !important;
+    padding-top: 130px !important;
+
+    // Header background (Restricted to container width)
+    &::before {
+      content: "" !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      height: 110px !important;
+      background-image: url("/wanderwood/static/header-bg.gif") !important;
+      background-repeat: repeat !important;
+      background-position: center !important;
+      background-size: cover !important;
+      filter: blur(4px) !important;
+      clip-path: inset(0) !important;
+      border: 3px solid var(--border-dark) !important;
+      box-shadow: inset -2px -2px 0px 0px var(--border-light) !important;
+      z-index: 10 !important;
+    }
+
+    // Centered Banner Logo
+    &::after {
+      content: "" !important;
+      position: absolute !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      width: 100% !important;
+      height: 110px !important;
+      background-image: url("/wanderwood/static/wanderwood-banner.png") !important;
+      background-repeat: no-repeat !important;
+      background-position: center !important;
+      background-size: contain !important;
+      pointer-events: none !important;
+      z-index: 11 !important;
+    }
+
+    // ============================================================================
+    // 3. ICHOR Beveled Main Panels
+    // ============================================================================
+
+    // Main Article Center Panel
+    & .center {
+      background-color: var(--panel-bg) !important;
+      border: 3px solid var(--border-dark) !important;
+      box-shadow: 
+        inset -2px -2px 0px 0px var(--border-light),
+        inset 2px 2px 0px 0px var(--border-dark),
+        0px 4px 12px rgba(0,0,0,0.6) !important;
+      padding: 32px !important;
+      min-height: calc(100vh - 180px) !important;
+    }
+
+    // Sidebars
+    & .sidebar.left,
+    & .sidebar.right {
+      position: sticky !important;
+      top: 130px !important;
+      height: calc(100vh - 150px) !important;
+      background-color: var(--panel-bg) !important;
+      border: 3px solid var(--border-dark) !important;
+      box-shadow: 
+        inset -2px -2px 0px 0px var(--border-light),
+        inset 2px 2px 0px 0px var(--border-dark) !important;
+      padding: 16px !important;
+      overflow-y: auto !important;
+    }
+  }
 }
 
-.page > #quartz-body {
-  position: relative !important;
-  padding-top: 130px !important; // Clears room for the header banner inside container
-
-  // Constrained Header background
-  &::before {
-    content: "" !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    height: 110px !important;
-    background-image: url("/wanderwood/static/header-bg.gif") !important;
-    background-repeat: repeat !important;
-    background-position: center !important;
-    background-size: cover !important;
-    filter: blur(4px) !important;
-    clip-path: inset(0) !important;
-    border: 3px solid var(--border-dark) !important;
-    box-shadow: inset -2px -2px 0px 0px var(--border-light) !important;
-    z-index: 10 !important;
-  }
-
-  // Constrained Logo Banner Overlay
-  &::after {
-    content: "" !important;
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100% !important;
-    height: 110px !important;
-    background-image: url("/wanderwood/static/wanderwood-banner.png") !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-size: contain !important;
-    pointer-events: none !important;
-    z-index: 11 !important;
-  }
+.sidebar .page-title {
+  display: none !important;
 }
 
 // ============================================================================
-// 2. Explorer Container & Background Alignment Fix
+// 4. Explorer Container & Background Alignment Fix
 // ============================================================================
 .explorer,
 .explorer-content,
@@ -67,14 +138,29 @@
   margin-left: 0 !important;
 }
 
-// Active link fix inside Explorer
 .explorer {
-  ul {
-    list-style: none !important;
-    padding-left: 12px !important;
+  position: relative !important;
+
+  .explorer-title, button {
+    color: var(--dark) !important;
+    font-weight: bold !important;
+    text-shadow: 1px 1px 0px #000000 !important;
   }
 
-  // Active page item alignment
+  ul {
+    list-style: none !important;
+    padding-left: 10px !important;
+  }
+
+  a, span {
+    color: var(--darkgray) !important;
+  }
+
+  a:hover, .folder-container:hover {
+    color: var(--secondary) !important;
+  }
+
+  // Active document highlight in Explorer
   .file-link.active,
   .file-link[aria-current="page"] {
     background-color: var(--slot-bg) !important;
@@ -83,53 +169,28 @@
     border-left: 3px solid var(--secondary) !important;
     color: #ffffff !important;
     display: block !important;
-    padding: 2px 6px !important;
+    padding: 3px 6px !important;
     margin: 2px 0 !important;
   }
 }
-// ============================================================================
-// 3. ICHOR Beveled Main Panels
-// ============================================================================
 
-// Main Article Center Container
-.page > #quartz-body .center {
-  background-color: var(--panel-bg) !important;
-  border: 3px solid var(--border-dark) !important;
-  box-shadow: 
-    inset -2px -2px 0px 0px var(--border-light),
-    inset 2px 2px 0px 0px var(--border-dark),
-    0px 4px 12px rgba(0,0,0,0.6) !important;
-  padding: 32px !important;
-  min-height: calc(100vh - 180px) !important;
-}
-
-// Sidebars
-.sidebar.left,
-.sidebar.right {
-  position: sticky !important;
-  top: 130px !important;
-  height: calc(100vh - 150px) !important;
-  background-color: var(--panel-bg) !important;
-  border: 3px solid var(--border-dark) !important;
-  box-shadow: 
-    inset -2px -2px 0px 0px var(--border-light),
-    inset 2px 2px 0px 0px var(--border-dark) !important;
-  padding: 16px !important;
-  overflow-y: auto !important;
-}
-
-.sidebar .explorer,
-.sidebar .graph,
-div[id^="graph-"] {
-  background: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
+// Frog Mob Buddy sitting on Explorer
+.explorer::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  top: -36px !important;
+  right: 8px !important;
+  width: 32px !important;
+  height: 32px !important;
+  background-image: url("/wanderwood/static/mob-buddy-frog.gif") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  pointer-events: none !important;
 }
 
 // ============================================================================
-// 4. Inset Slots & In-Game GUI Elements
+// 5. Inset Slots, Buttons & Breadcrumbs
 // ============================================================================
 
 // Search Bar (Slot Style)
@@ -177,7 +238,7 @@ a.internal.tag-link {
   &[href*="core"]::before { content: "📜 "; }
 }
 
-// Inline Document Links (Replaces default yellow/purple pill background)
+// Inline Document Links
 a.internal:not(.tag-link) {
   background-color: rgba(85, 170, 34, 0.15) !important;
   color: #8be645 !important;
@@ -191,7 +252,7 @@ a.internal:not(.tag-link) {
   }
 }
 
-// Breadcrumbs Recolor (Kills residual purple text)
+// Breadcrumb Links
 .breadcrumb-element, 
 .breadcrumb-element a {
   color: var(--gray) !important;
@@ -202,68 +263,12 @@ a.internal:not(.tag-link) {
 }
 
 // ============================================================================
-// 5. Explorer Tree & Navigation
-// ============================================================================
-.explorer {
-  position: relative !important;
-
-  .explorer-title, button {
-    color: var(--dark) !important;
-    font-weight: bold !important;
-    text-shadow: 1px 1px 0px #000000 !important;
-  }
-
-  a, span {
-    color: var(--darkgray) !important;
-  }
-
-  a:hover, .folder-container:hover {
-    color: var(--secondary) !important;
-  }
-
-  // Active page highlight in sidebar
-  .file-link.active,
-  .file-link[aria-current="page"] {
-    background-color: var(--slot-bg) !important;
-    border: 2px solid #000000 !important;
-    box-shadow: inset 2px 2px 0px 0px var(--border-dark) !important;
-    border-left: 3px solid var(--secondary) !important;
-    color: #ffffff !important;
-    padding-left: 6px !important;
-  }
-}
-
-// Frog Mob Buddy sitting on Explorer
-.explorer::before {
-  content: "" !important;
-  display: block !important;
-  position: absolute !important;
-  top: -36px !important;
-  right: 8px !important;
-  width: 32px !important;
-  height: 32px !important;
-  background-image: url("/wanderwood/static/mob-buddy-frog.gif") !important;
-  background-size: contain !important;
-  background-repeat: no-repeat !important;
-  pointer-events: none !important;
-}
-
-// Category folder accent colors
-a[data-for="Core Systems"], 
-.explorer [data-folderpath="Core Systems"] > .folder-container > a {
-  color: #ff9e64 !important;
-}
-
-a[data-for="Blocks"], 
-.explorer [data-folderpath="Blocks"] > .folder-container > a {
-  color: #f7768e !important;
-}
-
-// ============================================================================
-// 6. Interactive Graph View (Inset Box Style)
+// 6. Interactive Graph View
 // ============================================================================
 .sidebar .graph {
   margin-top: 16px !important;
+  background: transparent !important;
+  border: none !important;
 
   .graph-title {
     color: var(--dark) !important;
@@ -295,7 +300,7 @@ div[id^="graph-"],
 }
 
 // ============================================================================
-// 7. Typography, Code Blocks, and Scrollbars
+// 7. Typography, Code Blocks & Scrollbars
 // ============================================================================
 article {
   h1, h2, h3, h4, h5, h6 {
