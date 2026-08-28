@@ -13,4 +13,4 @@
 ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/stick.png)
 ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/diamond.png)
 ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/block/oak_planks.png)
-![[glowroot-collar.png|32]]
+![](wanderwood/static/glowroot-collar.png)
