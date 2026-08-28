@@ -69,7 +69,13 @@ html, body, page, div.page, #quartz-body {
 .sidebar .graph,
 div[id^="graph-"] {
   position: relative !important;
-  background-color: #242424 !important;
+  
+  // Replaced solid grey color with tiled blackstone texture
+  background-image: url("/wanderwood/static/blackstone-bg.png") !important;
+  background-repeat: repeat !important;
+  background-size: 128px 128px !important;
+  image-rendering: pixelated !important;
+
   border: 4px solid #101010 !important;
   border-radius: 4px !important;
   margin-top: 20px !important;
@@ -82,11 +88,11 @@ div[id^="graph-"] {
     top: -8px !important; 
     left: -4px !important;
     right: -4px !important;
-    height: 36px !important; // Crops out the blank bottom space of the texture
+    height: 36px !important;
     
     background-image: url("/wanderwood/static/grass-top.png") !important;
     background-repeat: repeat-x !important;
-    background-size: auto 128px !important; // Keeps original big pixel size
+    background-size: auto 128px !important;
     background-position: center top !important;
     image-rendering: pixelated !important;
     pointer-events: none !important;
