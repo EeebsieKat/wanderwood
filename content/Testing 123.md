@@ -33,6 +33,15 @@
 
 <span class="tool-badge">![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/diamond_axe.png) Diamond Axe</span>
 
+Create:
+![](https://raw.githubusercontent.com/Creators-of-Create/Create/mc1.20.1/dev/src/main/resources/assets/create/textures/item/andesite_alloy.png)
+![](https://raw.githubusercontent.com/Creators-of-Create/Create/refs/heads/mc1.21.1/dev/src/main/resources/assets/create/textures/item/blaze_cake.png)
+![](https://raw.githubusercontent.com/Creators-of-Create/Create/refs/heads/mc1.21.1/dev/src/main/resources/assets/create/textures/item/clipboard.png)
+
+Apotheosis:
+<span class="mc-sprite" style="background-image: url('https://raw.githubusercontent.com/Shadows-of-Fire/Apotheosis/refs/heads/1.21/src/main/resources/assets/apotheosis/textures/items/gem_dust.png');"></span>
+
+Vanilla:
 ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/stick.png)
 ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/diamond.png)
 ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/block/oak_planks.png)

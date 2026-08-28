@@ -565,6 +565,19 @@ a.internal.tag-link {
   }
 }
 
+// Generic Spritesheet Cropper
+.mc-sprite {
+  display: inline-block !important;
+  width: 32px !important;
+  height: 32px !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 0 !important; // Locks view to the very top frame
+  background-size: 32px auto !important; // Scales the width to match your 32px slots
+  image-rendering: pixelated !important;
+  image-rendering: crisp-edges !important;
+  vertical-align: middle !important;
+}
+
 // ============================================================================
 // 10. Furnace / Processing Recipes ([!smelt])
 // ============================================================================
