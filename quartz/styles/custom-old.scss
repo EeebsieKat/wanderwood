@@ -1,0 +1,312 @@
+@use "./variables.scss" as *;
+
+// 1. Root & Global Accents
+:root {
+  --secondary: #55aa22 !important;
+  --tertiary: #66cc22 !important;
+  --highlight: rgba(85, 170, 34, 0.2) !important;
+}
+
+// Tiled Background
+html, body, page, div.page, #quartz-body {
+  background-image: url("/wanderwood/static/dirt.png") !important;
+  background-repeat: repeat !important;
+  background-size: 128px 128px !important;
+  image-rendering: pixelated !important;
+}
+
+// 2. Header Banner
+.page > #quartz-body {
+  position: relative !important;
+  padding-top: 150px !important;
+
+  // Layer 1: Blurred GIF
+  &::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 120px !important;
+    background-image: url("/wanderwood/static/header-bg.gif") !important;
+    background-repeat: repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    filter: blur(6px) !important;
+    transform: scale(1.1) !important;
+    overflow: hidden !important;
+    clip-path: inset(0) !important;
+    border-bottom: 4px solid #101010 !important;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5) !important;
+    z-index: 10 !important;
+  }
+
+  // Layer 2: Crisp Logo
+  &::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 120px !important;
+    background-image: url("/wanderwood/static/wanderwood-banner.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: contain !important;
+    image-rendering: pixelated !important;
+    pointer-events: none !important;
+    z-index: 11 !important;
+  }
+}
+
+.sidebar .page-title {
+  display: none !important;
+}
+
+// 3. Main Columns & Blackstone Layout
+.page > #quartz-body .center,
+.sidebar.left,
+.sidebar.right {
+  position: relative !important;
+  background-image: url("/wanderwood/static/blackstone-bg.png") !important;
+  background-repeat: repeat !important;
+  background-size: 128px 128px !important;
+  image-rendering: pixelated !important;
+  border: none !important;
+  border-radius: 0px !important;
+  margin-top: 20px !important;
+}
+
+.page > #quartz-body .center {
+  flex-grow: 1 !important;
+  min-height: 100vh !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  margin-top: 20px !important;
+  padding-top: 28px !important;
+
+  header, article, div {
+    position: relative !important;
+    z-index: 20 !important;
+  }
+}
+
+// Grass Cap for Outer Columns
+.page > #quartz-body .center::after,
+.sidebar.left::after,
+.sidebar.right::after {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  top: -8px !important; 
+  left: 0 !important;
+  right: 0 !important;
+  height: 36px !important;
+  background-image: url("/wanderwood/static/grass-top.png") !important;
+  background-repeat: repeat-x !important;
+  background-size: auto 128px !important;
+  background-position: center top !important;
+  image-rendering: pixelated !important;
+  pointer-events: none !important;
+  z-index: 1 !important;
+}
+
+// 4. Inner Dirt Cards (Explorer & Graph)
+.sidebar .explorer,
+.sidebar .graph {
+  position: relative !important;
+  background-image: url("/wanderwood/static/dirt.png") !important;
+  background-repeat: repeat !important;
+  background-size: 128px 128px !important;
+  image-rendering: pixelated !important;
+  border: none !important;
+  border-radius: 0px !important;
+  margin: 16px !important;
+  padding: 16px 12px !important;
+
+  // Grass Cap for Inner Dirt Components
+  &::after {
+    content: "" !important;
+    display: block !important;
+    position: absolute !important;
+    top: -8px !important; 
+    left: 0 !important;
+    right: 0 !important;
+    height: 36px !important;
+    background-image: url("/wanderwood/static/grass-top.png") !important;
+    background-repeat: repeat-x !important;
+    background-size: auto 128px !important;
+    background-position: center top !important;
+    image-rendering: pixelated !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+  }
+}
+
+.explorer {
+  overflow: visible !important;
+  padding-top: 24px !important;
+
+  button, .explorer-title, .folder-container, .file-link, ul, div, span, a {
+    position: relative !important;
+    z-index: 20 !important;
+  }
+}
+
+.sidebar .graph {
+  padding-top: 24px !important;
+  
+  * {
+    position: relative !important;
+    z-index: 20 !important;
+  }
+}
+
+// Clear inner default backgrounds
+.explorer-content,
+.explorer-content div,
+.explorer-content ul,
+.explorer-content li,
+.graph-outer,
+.graph-outer > div,
+div[id^="graph-"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+// 5. Mob Buddy GIF
+.explorer::before {
+  content: "" !important;
+  display: block !important;
+  position: absolute !important;
+  top: -48px !important; 
+  right: 12px !important;
+  width: 64px !important;
+  height: 64px !important;
+  background-image: url("/wanderwood/static/mob-buddy-frog.gif") !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center bottom !important;
+  image-rendering: pixelated !important;
+  pointer-events: none !important;
+  z-index: 100 !important;
+}
+
+// 6. UI Text, Links, and Tags
+.explorer,
+.explorer *,
+.explorer a,
+.explorer span,
+.graph-title,
+.search-button {
+  color: #38323e !important;
+  fill: #38323e !important;
+}
+
+.explorer a:hover,
+.explorer .folder-container:hover {
+  color: #ffffff !important;
+}
+
+.explorer .file-link.active,
+.explorer .file-link[aria-current="page"] {
+  background-color: rgba(0, 0, 0, 0.25) !important;
+  border-radius: 2px !important;
+  color: #ffffff !important;
+}
+
+.breadcrumb-element, 
+.breadcrumb-element a,
+a.internal,
+.meta {
+  color: #55aa22 !important;
+  
+  &:hover {
+    color: #66cc22 !important;
+  }
+}
+
+a.internal.tag-link {
+  display: inline-block !important;
+  width: fit-content !important;
+  background-color: rgba(42, 195, 222, 0.15) !important;
+  color: #7dcfff !important;
+  border: 1px solid rgba(42, 195, 222, 0.4) !important;
+  border-radius: 12px !important;
+  padding: 2px 10px !important;
+  font-size: 0.85em !important;
+  font-weight: 600 !important;
+  margin: 4px 2px !important;
+
+  &[href*="blocks"]::before {
+    content: "⚒️ ";
+  }
+  &[href*="core"]::before {
+    content: "📜 ";
+  }
+}
+
+a[data-for="Core Systems"], 
+.explorer [data-folderpath="Core Systems"] > .folder-container > a {
+  color: #ff9e64 !important;
+}
+
+a[data-for="Blocks"], 
+.explorer [data-folderpath="Blocks"] > .folder-container > a {
+  color: #f7768e !important;
+}
+
+// 7. Search Bar Styling
+.search {
+  margin-bottom: 12px !important;
+
+  input[type="text"],
+  #search-bar {
+    background-color: #1a1417 !important;
+    color: #e3d3db !important;
+    border: 2px solid #3d2b33 !important;
+    border-radius: 0px !important;
+    padding: 6px 10px !important;
+    font-family: inherit !important;
+    box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.5) !important;
+
+    &::placeholder {
+      color: #7a636e !important;
+    }
+
+    &:focus {
+      border-color: #55aa22 !important;
+      outline: none !important;
+    }
+  }
+}
+
+// 8. Graph View & SVG Nodes
+.graph-outer,
+div[id^="graph-"],
+.graph-view-container {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 220px !important;
+  background: transparent !important;
+
+  svg {
+    width: 100% !important;
+    height: 100% !important;
+    background: transparent !important;
+
+    circle {
+      fill: #55aa22 !important;
+      stroke: #66cc22 !important;
+    }
+    line {
+      stroke: rgba(85, 170, 34, 0.4) !important;
+    }
+  }
+}
+
+// 9. Footer
+footer {
+  display: none !important;
+}

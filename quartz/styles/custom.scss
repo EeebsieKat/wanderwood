@@ -1,252 +1,176 @@
 @use "./variables.scss" as *;
 
-// 1. Root & Global Accents
+// ============================================================================
+// 1. Color System & Root Variable Overrides (Clean Minecraft Wiki Theme)
+// ============================================================================
 :root {
-  --secondary: #55aa22 !important;
-  --tertiary: #66cc22 !important;
-  --highlight: rgba(85, 170, 34, 0.2) !important;
+  --light: #181519 !important;               // Base background (Deep Dark Slate)
+  --lightgray: #2d262f !important;           // Panel borders & UI divides
+  --gray: #7d6e83 !important;                // Muted text & placeholders
+  --darkgray: #d6ccdc !important;            // Body text (Crisp high-contrast pale slate)
+  --dark: #ffffff !important;                // Headers & bold text
+  --secondary: #55aa22 !important;           // Primary Minecraft Grass Green
+  --tertiary: #66cc22 !important;            // Green hover state
+  --highlight: rgba(85, 170, 34, 0.15) !important;
 }
 
-// Tiled Background
-html, body, page, div.page, #quartz-body {
-  background-image: url("/wanderwood/static/dirt.png") !important;
-  background-repeat: repeat !important;
-  background-size: 128px 128px !important;
+// Global page background & text rendering
+html, body {
+  background-color: var(--light) !important;
+  color: var(--darkgray) !important;
   image-rendering: pixelated !important;
 }
 
-// 2. Header Banner
+// ============================================================================
+// 2. Header Banner & Nav Bar
+// ============================================================================
 .page > #quartz-body {
   position: relative !important;
-  padding-top: 150px !important;
+  padding-top: 140px !important; // Room for top fixed banner
 
-  // Layer 1: Blurred GIF
+  // Header background (Blurred GIF)
   &::before {
     content: "" !important;
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    height: 120px !important;
+    height: 110px !important;
     background-image: url("/wanderwood/static/header-bg.gif") !important;
     background-repeat: repeat !important;
-    background-position: center center !important;
+    background-position: center !important;
     background-size: cover !important;
-    filter: blur(6px) !important;
-    transform: scale(1.1) !important;
+    filter: blur(4px) !important;
+    transform: scale(1.05) !important;
     overflow: hidden !important;
     clip-path: inset(0) !important;
-    border-bottom: 4px solid #101010 !important;
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5) !important;
+    border-bottom: 3px solid #0d0b0e !important;
     z-index: 10 !important;
   }
 
-  // Layer 2: Crisp Logo
+  // Banner Logo Overlay
   &::after {
     content: "" !important;
     position: absolute !important;
     top: 0 !important;
     left: 0 !important;
     width: 100% !important;
-    height: 120px !important;
+    height: 110px !important;
     background-image: url("/wanderwood/static/wanderwood-banner.png") !important;
     background-repeat: no-repeat !important;
-    background-position: center center !important;
+    background-position: center !important;
     background-size: contain !important;
-    image-rendering: pixelated !important;
     pointer-events: none !important;
     z-index: 11 !important;
   }
 }
 
+// Hide default text page title in sidebar
 .sidebar .page-title {
   display: none !important;
 }
 
-// 3. Main Columns & Blackstone Layout
-.page > #quartz-body .center,
+// ============================================================================
+// 3. Grid Layout & Clean Wiki Containers
+// ============================================================================
+
+// Main Article Center Panel (Solid Dark Container)
+.page > #quartz-body .center {
+  background-color: #211c23 !important;
+  border: 2px solid var(--lightgray) !important;
+  border-radius: 0px !important; // Sharp pixel corners
+  padding: 32px !important;
+  min-height: calc(100vh - 180px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+// Sidebars (Clean Dark Panels)
 .sidebar.left,
 .sidebar.right {
-  position: relative !important;
-  background-image: url("/wanderwood/static/blackstone-bg.png") !important;
-  background-repeat: repeat !important;
-  background-size: 128px 128px !important;
-  image-rendering: pixelated !important;
-  border: none !important;
+  position: sticky !important;
+  top: 130px !important;
+  height: calc(100vh - 150px) !important;
+  background-color: #1e1920 !important;
+  border: 2px solid var(--lightgray) !important;
   border-radius: 0px !important;
-  margin-top: 20px !important;
+  padding: 16px !important;
+  overflow-y: auto !important;
 }
 
-.page > #quartz-body .center {
-  flex-grow: 1 !important;
-  min-height: 100vh !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  margin-top: 20px !important;
-  padding-top: 28px !important;
-
-  header, article, div {
-    position: relative !important;
-    z-index: 20 !important;
-  }
-}
-
-// Grass Cap for Outer Columns
-.page > #quartz-body .center::after,
-.sidebar.left::after,
-.sidebar.right::after {
-  content: "" !important;
-  display: block !important;
-  position: absolute !important;
-  top: -8px !important; 
-  left: 0 !important;
-  right: 0 !important;
-  height: 36px !important;
-  background-image: url("/wanderwood/static/grass-top.png") !important;
-  background-repeat: repeat-x !important;
-  background-size: auto 128px !important;
-  background-position: center top !important;
-  image-rendering: pixelated !important;
-  pointer-events: none !important;
-  z-index: 1 !important;
-}
-
-// 4. Inner Dirt Cards (Explorer & Graph)
+// Remove nested component frames so everything sits flat
 .sidebar .explorer,
-.sidebar .graph {
-  position: relative !important;
-  background-image: url("/wanderwood/static/dirt.png") !important;
-  background-repeat: repeat !important;
-  background-size: 128px 128px !important;
-  image-rendering: pixelated !important;
-  border: none !important;
-  border-radius: 0px !important;
-  margin: 16px !important;
-  padding: 16px 12px !important;
-
-  // Grass Cap for Inner Dirt Components
-  &::after {
-    content: "" !important;
-    display: block !important;
-    position: absolute !important;
-    top: -8px !important; 
-    left: 0 !important;
-    right: 0 !important;
-    height: 36px !important;
-    background-image: url("/wanderwood/static/grass-top.png") !important;
-    background-repeat: repeat-x !important;
-    background-size: auto 128px !important;
-    background-position: center top !important;
-    image-rendering: pixelated !important;
-    pointer-events: none !important;
-    z-index: 1 !important;
-  }
-}
-
-.explorer {
-  overflow: visible !important;
-  padding-top: 24px !important;
-
-  button, .explorer-title, .folder-container, .file-link, ul, div, span, a {
-    position: relative !important;
-    z-index: 20 !important;
-  }
-}
-
-.sidebar .graph {
-  padding-top: 24px !important;
-  
-  * {
-    position: relative !important;
-    z-index: 20 !important;
-  }
-}
-
-// Clear inner default backgrounds
-.explorer-content,
-.explorer-content div,
-.explorer-content ul,
-.explorer-content li,
-.graph-outer,
-.graph-outer > div,
+.sidebar .graph,
 div[id^="graph-"] {
   background: transparent !important;
-  background-color: transparent !important;
+  border: none !important;
   box-shadow: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-// 5. Mob Buddy GIF
+// ============================================================================
+// 4. Explorer & Navigation Styling
+// ============================================================================
+.explorer {
+  position: relative !important;
+
+  // Title styling
+  .explorer-title, button {
+    color: var(--dark) !important;
+    font-weight: bold !important;
+    text-shadow: 1px 1px 0px #000000 !important;
+  }
+
+  // Tree links
+  a, span {
+    color: var(--darkgray) !important;
+    transition: color 0.15s ease !important;
+  }
+
+  a:hover, .folder-container:hover {
+    color: var(--secondary) !important;
+  }
+
+  // Active document highlight
+  .file-link.active,
+  .file-link[aria-current="page"] {
+    background-color: var(--highlight) !important;
+    color: var(--secondary) !important;
+    font-weight: bold !important;
+  }
+}
+
+// Mob Buddy Frog Asset placement above Explorer
 .explorer::before {
   content: "" !important;
   display: block !important;
   position: absolute !important;
-  top: -48px !important; 
-  right: 12px !important;
-  width: 64px !important;
-  height: 64px !important;
+  top: -36px !important;
+  right: 8px !important;
+  width: 32px !important;
+  height: 32px !important;
   background-image: url("/wanderwood/static/mob-buddy-frog.gif") !important;
   background-size: contain !important;
   background-repeat: no-repeat !important;
-  background-position: center bottom !important;
-  image-rendering: pixelated !important;
   pointer-events: none !important;
-  z-index: 100 !important;
 }
 
-// 6. UI Text, Links, and Tags
-.explorer,
-.explorer *,
-.explorer a,
-.explorer span,
-.graph-title,
-.search-button {
-  color: #38323e !important;
-  fill: #38323e !important;
-}
-
-.explorer a:hover,
-.explorer .folder-container:hover {
-  color: #ffffff !important;
-}
-
-.explorer .file-link.active,
-.explorer .file-link[aria-current="page"] {
-  background-color: rgba(0, 0, 0, 0.25) !important;
-  border-radius: 2px !important;
-  color: #ffffff !important;
-}
-
-.breadcrumb-element, 
-.breadcrumb-element a,
-a.internal,
-.meta {
-  color: #55aa22 !important;
-  
-  &:hover {
-    color: #66cc22 !important;
-  }
-}
-
+// Custom Tag Links
 a.internal.tag-link {
   display: inline-block !important;
-  width: fit-content !important;
-  background-color: rgba(42, 195, 222, 0.15) !important;
-  color: #7dcfff !important;
-  border: 1px solid rgba(42, 195, 222, 0.4) !important;
-  border-radius: 12px !important;
-  padding: 2px 10px !important;
+  background-color: rgba(85, 170, 34, 0.15) !important;
+  color: var(--secondary) !important;
+  border: 1px solid rgba(85, 170, 34, 0.4) !important;
+  border-radius: 0px !important;
+  padding: 2px 8px !important;
   font-size: 0.85em !important;
-  font-weight: 600 !important;
-  margin: 4px 2px !important;
+  font-weight: bold !important;
 
-  &[href*="blocks"]::before {
-    content: "⚒️ ";
-  }
-  &[href*="core"]::before {
-    content: "📜 ";
-  }
+  &[href*="blocks"]::before { content: "⚒️ "; }
+  &[href*="core"]::before { content: "📜 "; }
 }
 
+// Category folder accent colors
 a[data-for="Core Systems"], 
 .explorer [data-folderpath="Core Systems"] > .folder-container > a {
   color: #ff9e64 !important;
@@ -257,56 +181,91 @@ a[data-for="Blocks"],
   color: #f7768e !important;
 }
 
-// 7. Search Bar Styling
+// ============================================================================
+// 5. Search Bar (Minecraft GUI Input Box Style)
+// ============================================================================
 .search {
-  margin-bottom: 12px !important;
+  margin-bottom: 16px !important;
 
   input[type="text"],
   #search-bar {
-    background-color: #1a1417 !important;
-    color: #e3d3db !important;
-    border: 2px solid #3d2b33 !important;
+    background-color: #120e14 !important;
+    color: #ffffff !important;
+    border: 2px solid #3d3342 !important;
     border-radius: 0px !important;
-    padding: 6px 10px !important;
-    font-family: inherit !important;
-    box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.5) !important;
+    padding: 8px 12px !important;
+    font-family: monospace !important;
+    box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.6) !important;
 
     &::placeholder {
-      color: #7a636e !important;
+      color: var(--gray) !important;
     }
 
     &:focus {
-      border-color: #55aa22 !important;
+      border-color: var(--secondary) !important;
       outline: none !important;
     }
   }
 }
 
-// 8. Graph View & SVG Nodes
+// ============================================================================
+// 6. Interactive Graph View & SVG Nodes
+// ============================================================================
+.sidebar .graph {
+  margin-top: 16px !important;
+
+  .graph-title {
+    color: var(--dark) !important;
+    font-weight: bold !important;
+    margin-bottom: 8px !important;
+  }
+}
+
 .graph-outer,
 div[id^="graph-"],
 .graph-view-container {
   width: 100% !important;
-  height: 100% !important;
-  min-height: 220px !important;
-  background: transparent !important;
+  height: 240px !important;
 
   svg {
     width: 100% !important;
     height: 100% !important;
-    background: transparent !important;
 
     circle {
-      fill: #55aa22 !important;
-      stroke: #66cc22 !important;
+      fill: var(--secondary) !important;
+      stroke: var(--tertiary) !important;
     }
     line {
-      stroke: rgba(85, 170, 34, 0.4) !important;
+      stroke: rgba(85, 170, 34, 0.3) !important;
     }
   }
 }
 
-// 9. Footer
+// ============================================================================
+// 7. Typography, Code Blocks & Content Styling
+// ============================================================================
+article {
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--dark) !important;
+    border-bottom: 1px solid var(--lightgray) !important;
+    padding-bottom: 4px !important;
+  }
+
+  code {
+    background-color: #120e14 !important;
+    color: #e2dae6 !important;
+    border: 1px solid #3d3342 !important;
+    border-radius: 0px !important;
+  }
+
+  pre {
+    background-color: #120e14 !important;
+    border: 2px solid #3d3342 !important;
+    border-radius: 0px !important;
+  }
+}
+
+// Disable default Quartz footer
 footer {
   display: none !important;
 }
