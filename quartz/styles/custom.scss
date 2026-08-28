@@ -265,3 +265,37 @@ a.internal,
     stroke: rgba(85, 170, 34, 0.4) !important;
   }
 }
+
+// Remove remaining dark grey inner backgrounds
+.explorer-content,
+.explorer-content div,
+.explorer-content ul,
+.explorer-content li,
+.graph-outer,
+.graph-outer > div,
+div[id^="graph-"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+// Recolor text, headers, and search UI to match the blackstone reddish-grey tone
+.explorer,
+.explorer *,
+.graph-title,
+.search,
+.search input,
+.search-button {
+  color: #a39098 !important;
+  fill: #a39098 !important;
+}
+
+// Search bar background & placeholder styling
+.search input {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid #33262b !important;
+  
+  &::placeholder {
+    color: rgba(163, 144, 152, 0.6) !important;
+  }
+}
