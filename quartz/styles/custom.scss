@@ -63,43 +63,45 @@ html, body, page, div.page, #quartz-body {
   display: none !important;
 }
 
-// 3. Container Layout, Background Tiling & Sharp Edges
+// 3. Container Layout, Expansion & Dirt Background Transparency
 .page > #quartz-body .center,
 .sidebar.left,
 .sidebar.right {
   position: relative !important;
   
-  // Tiled blackstone background on outer panels
   background-image: url("/wanderwood/static/blackstone-bg.png") !important;
   background-repeat: repeat !important;
   background-size: 128px 128px !important;
   image-rendering: pixelated !important;
 
-  // Sharp corners & clean edge alignment
   border: none !important;
   border-radius: 0px !important;
   margin-top: 20px !important;
 }
 
-// Extend center piece down and pull it slightly left to fill the gap
+// Expand center panel down and close gaps
 .page > #quartz-body .center {
   flex-grow: 1 !important;
-  min-height: calc(100vh - 200px) !important; // Stretches all the way down the screen
-  margin-left: -8px !important; // Nudges center piece left
+  min-height: 100vh !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
-// Remove nested inner backgrounds/borders so texture doesn't double-layer
+// Clear dark grey backgrounds from inner components (Explorer & Graph View)
 .sidebar .explorer,
 .sidebar .graph,
-div[id^="graph-"] {
+div[id^="graph-"],
+.explorer-content,
+.graph-outer {
   background: transparent !important;
+  background-color: transparent !important;
   border: none !important;
   border-radius: 0px !important;
   box-shadow: none !important;
   margin-top: 0 !important;
   
   &::before, &::after {
-    display: none !important; // Prevents inner grass/shadow duplication
+    display: none !important;
   }
 }
 
@@ -213,4 +215,34 @@ a[data-for="Blocks"],
 // Disable the footer
 footer {
 display: none !important;
+}
+
+// Recolor all purple elements (Links, Breadcrumbs, Graph Nodes) to Grass Green
+:root {
+  --secondary: #55aa22 !important;      // Main link/accent color
+  --tertiary: #66cc22 !important;       // Hover state color
+  --highlight: rgba(85, 170, 34, 0.2) !important;
+}
+
+// Breadcrumbs & internal links override
+.breadcrumb-element, 
+.breadcrumb-element a,
+a.internal,
+.meta {
+  color: #55aa22 !important;
+  
+  &:hover {
+    color: #66cc22 !important;
+  }
+}
+
+// Graph view SVG nodes & lines
+.graph-outer svg {
+  circle {
+    fill: #55aa22 !important;
+    stroke: #66cc22 !important;
+  }
+  line {
+    stroke: rgba(85, 170, 34, 0.4) !important;
+  }
 }
