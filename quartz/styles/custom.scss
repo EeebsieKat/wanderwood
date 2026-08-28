@@ -176,3 +176,56 @@ a[data-for="Blocks"],
 .explorer [data-folderpath="Blocks"] > .folder-container > a {
   color: #f7768e !important;
 }
+
+// ============================================================================
+// Horizontal Navbar Conversion
+// ============================================================================
+
+// 1. Shift the CSS Grid layout to place the left sidebar above center content
+.page > #quartz-body {
+  grid-template-columns: 1fr !important;
+  grid-template-areas:
+    "grid-sidebar-left"
+    "grid-header"
+    "grid-center"
+    "grid-sidebar-right"
+    "grid-footer" !important;
+}
+
+// 2. Transform the left sidebar container into a full-width horizontal bar
+.page > #quartz-body .sidebar.left {
+  width: 100% !important;
+  height: auto !important;
+  position: relative !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding: 1rem 0 !important;
+  gap: 1rem !important;
+
+  // Let inner components (Explorer, Search, Dark Mode toggle) share space inline
+  & > * {
+    margin-top: 0 !important;
+  }
+}
+
+// 3. Make the Explorer component scroll horizontally instead of vertically
+.sidebar.left .explorer {
+  width: 100% !important;
+  
+  .folder-outer {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+  }
+
+  ul {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0.75rem !important;
+    padding-left: 0 !important;
+    list-style: none !important;
+  }
+}
