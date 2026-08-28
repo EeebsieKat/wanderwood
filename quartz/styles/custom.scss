@@ -569,9 +569,10 @@ a.internal.tag-link {
 // 10. Furnace / Processing Recipes ([!smelt])
 // ============================================================================
 
+// Animated Minecraft Fire Sprite
 @keyframes mc-fire-burn {
   0% { background-position: 0 0; }
-  100% { background-position: 0 -512px; }
+  100% { background-position: 0 -1024px; }
 }
 
 .mc-flame {
@@ -581,11 +582,11 @@ a.internal.tag-link {
   margin: 0 auto !important;
   overflow: hidden !important;
   background-image: url("https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/block/fire_0.png") !important;
-  background-size: 32px 512px !important;
+  background-size: 32px 1024px !important; // Scales 16x16 frames up to 32x32 cleanly
   background-repeat: no-repeat !important;
   image-rendering: pixelated !important;
   image-rendering: crisp-edges !important;
-  animation: mc-fire-burn 1.5s steps(32) infinite !important;
+  animation: mc-fire-burn 1.8s steps(32) infinite !important;
 }
 
 .callout[data-callout="smelt"] {
