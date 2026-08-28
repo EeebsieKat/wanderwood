@@ -1,7 +1,7 @@
 > [!recipe] Glowroot Wolf Collar
 > | | | |
 > |---|---|---|
-> | ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/string.png) | ![](https://raw.githubusercontent.com/EeebsieKat/Wanderwood/main/quartz/static/glowroot-collar.png) | ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/string.png) |
+> | ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/string.png) | ![](https://raw.githubusercontent.com/EeebsieKat/Wanderwood/main/quartz/static/chain-circlet.png) | ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/string.png) |
 > | | ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/leather.png) | |
 > | | | |
 > 
@@ -60,6 +60,4 @@ Template testing:
 > | | | | | |
 > | | | | ➔ | <span data-count="1">![](https://static.vecteezy.com/system/resources/previews/012/909/727/non_2x/single-of-banana-png.png)</span> |
 > | | | | | |
-> 
-
 
