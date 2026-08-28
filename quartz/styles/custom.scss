@@ -107,20 +107,19 @@ html, body {
 
     // Panels
     & .center {
-    background-color: var(--panel-bg) !important;
-    border: 3px solid var(--border-dark) !important;
-    box-shadow: 
+      background-color: var(--panel-bg) !important;
+      border: 3px solid var(--border-dark) !important;
+      box-shadow: 
         inset -2px -2px 0px 0px var(--border-light),
         inset 2px 2px 0px 0px var(--border-dark),
         0px 4px 12px rgba(0,0,0,0.6) !important;
-    padding: 16px 24px 24px 24px !important; // Reduced top padding from 32px to 16px
-    min-height: calc(100vh - 180px) !important;
+      padding: 16px 24px 24px 24px !important;
+      min-height: calc(100vh - 180px) !important;
 
-    // Remove empty header margin inside the article card
-    .page-header {
+      .page-header {
         margin-top: 0 !important;
         padding-top: 0 !important;
-    }
+      }
     }
 
     & .sidebar.left,
@@ -135,6 +134,11 @@ html, body {
         inset 2px 2px 0px 0px var(--border-dark) !important;
       padding: 16px !important;
       overflow-y: auto !important;
+    }
+
+    // Shifts right sidebar 4px to the right
+    & .sidebar.right {
+      margin-left: 4px !important;
     }
   }
 }
@@ -268,7 +272,7 @@ div[id^="graph-"],
       fill: var(--secondary) !important;
       stroke: var(--tertiary) !important;
     }
-    // Boosted white line visibility
+
     line {
       stroke: var(--graph-line) !important;
       stroke-width: 1.5px !important;
@@ -279,26 +283,6 @@ div[id^="graph-"],
 // ============================================================================
 // 6. Typography, Buttons, Code Blocks & Scrollbars
 // ============================================================================
-a.internal.tag-link {
-  display: inline-block !important;
-  background-color: var(--mc-green) !important;
-  color: #ffffff !important;
-  border: 2px solid var(--mc-green-border) !important;
-  box-shadow: inset 1px 1px 0px 0px #63b342, inset -1px -1px 0px 0px #245217 !important;
-  padding: 3px 8px !important;
-  font-size: 0.85em !important;
-  font-weight: bold !important;
-  text-shadow: 1px 1px 0px #000000 !important;
-
-  &:hover {
-    background-color: var(--mc-green-hover) !important;
-    color: #ffffff !important;
-  }
-
-  &[href*="blocks"]::before { content: "⚒️ "; }
-  &[href*="core"]::before { content: "📜 "; }
-}
-
 a.internal:not(.tag-link) {
   background-color: rgba(85, 170, 34, 0.15) !important;
   color: #8be645 !important;
@@ -358,7 +342,6 @@ footer {
 // ============================================================================
 // 7. Tags, Emojis, and Colors
 // ============================================================================
-// Base style for custom tag buttons
 a.internal.tag-link {
   display: inline-block !important;
   color: #ffffff !important;
