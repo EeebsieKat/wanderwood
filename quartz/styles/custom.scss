@@ -143,6 +143,20 @@ html, body {
   }
 }
 
+// Banner Pixel Alignment Fix
+.banner-container, 
+.site-header img {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  
+  // Removes sub-pixel anti-aliasing gaps
+  transform: translateZ(0) !important; 
+}
+
 .sidebar .page-title {
   display: none !important;
 }
