@@ -476,3 +476,23 @@ a.internal.tag-link {
     padding: 2px !important;
   }
 }
+
+// ============================================================================
+// 9. Automatic Item Texture Formatting (Vanilla CDN & Mod Assets)
+// ============================================================================
+
+.callout, table, p {
+  // Targets both vault images and external GitHub asset URLs
+  img[src*="minecraft-assets"],
+  img[src*="png"], 
+  img[alt*="32"] {
+    display: inline-block !important;
+    height: 32px !important;
+    width: 32px !important;
+    vertical-align: middle !important;
+    image-rendering: pixelated !important;
+    image-rendering: crisp-edges !important;
+    object-fit: contain !important;
+    margin: 0 2px !important;
+  }
+}
