@@ -157,6 +157,14 @@ html, body {
   transform: translateZ(0) !important; 
 }
 
+// Align banner wrapper margins to match the main grid
+header {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 .sidebar .page-title {
   display: none !important;
 }
