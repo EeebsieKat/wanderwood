@@ -269,3 +269,60 @@ article {
 footer {
   display: none !important;
 }
+
+// ============================================================================
+// 8. Minecraft Zone
+// ============================================================================
+// 1. In-Game Minecraft Scrollbars
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #120e14;
+  border-left: 2px solid #2d262f;
+}
+::-webkit-scrollbar-thumb {
+  background: #3d3342;
+  border: 2px solid #120e14;
+  &:hover {
+    background: #55aa22;
+  }
+}
+
+// 2. Item-Tooltip Hover Boxes (Minecraft Inventory Style)
+[data-tooltip], .tooltip {
+  position: relative;
+  &:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(16, 12, 24, 0.95);
+    color: #ffffff;
+    border: 2px solid #2b0d3e; // Classic enchanted purple outline
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: 0 0 0 2px #100b14;
+  }
+}
+
+// 3. Minecraft Container Callout Boxes
+.callout {
+  background-color: #120e14 !important;
+  border: 2px solid #3d3342 !important;
+  border-left: 6px solid var(--secondary) !important;
+  border-radius: 0px !important;
+  box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.5) !important;
+  color: var(--darkgray) !important;
+
+  &[data-callout="warning"] {
+    border-left-color: #ff9e64 !important;
+  }
+  &[data-callout="danger"] {
+    border-left-color: #f7768e !important;
+  }
+}
