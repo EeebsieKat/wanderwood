@@ -569,16 +569,17 @@ a.internal.tag-link {
 // 10. Furnace / Processing Recipes ([!smelt])
 // ============================================================================
 
-// Animated Minecraft Fire Sprite
 @keyframes mc-fire-burn {
   0% { background-position: 0 0; }
-  100% { background-position: 0 -512px; } // Cycles through the 32-frame vertical sprite sheet
+  100% { background-position: 0 -512px; }
 }
 
 .mc-flame {
-  display: inline-block !important;
+  display: block !important;
   width: 32px !important;
   height: 32px !important;
+  margin: 0 auto !important;
+  overflow: hidden !important;
   background-image: url("https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/block/fire_0.png") !important;
   background-size: 32px 512px !important;
   background-repeat: no-repeat !important;
@@ -669,14 +670,14 @@ a.internal.tag-link {
       }
     }
 
-    // Hide slot styling on the middle row of Column 1 (where the fire sits)
+    // Row 2 Column 1: Clear the background/borders for the fire slot
     tr:nth-child(2) td:nth-child(1) {
       background: transparent !important;
       border: none !important;
       box-shadow: none !important;
     }
 
-    // Show output slot ONLY on middle row of Column 3
+    // Row 2 Column 3: Display slot styling for the output item
     tr:nth-child(2) td:nth-child(3) {
       background-color: #2b232e !important;
       border: 2px solid var(--border-dark) !important;
