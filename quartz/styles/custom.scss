@@ -1,20 +1,26 @@
 @use "./variables.scss" as *;
 
 // ============================================================================
-// 1. Color System & Root Variable Overrides (Clean Minecraft Wiki Theme)
+// 1. ICHOR Theme Palette & In-Game UI Box-Shadows
 // ============================================================================
 :root {
-  --light: #181519 !important;               // Base background (Deep Dark Slate)
-  --lightgray: #2d262f !important;           // Panel borders & UI divides
-  --gray: #7d6e83 !important;                // Muted text & placeholders
-  --darkgray: #d6ccdc !important;            // Body text (Crisp high-contrast pale slate)
-  --dark: #ffffff !important;                // Headers & bold text
-  --secondary: #55aa22 !important;           // Primary Minecraft Grass Green
-  --tertiary: #66cc22 !important;            // Green hover state
-  --highlight: rgba(85, 170, 34, 0.15) !important;
+  --light: #0d0b0e !important;               // Outer space background
+  --panel-bg: #1e1920 !important;          // Container fill
+  --slot-bg: #120e14 !important;           // Inset search/code background
+  --border-light: #483c4d !important;       // Bevel highlight (Top/Left)
+  --border-dark: #100b14 !important;        // Bevel shadow (Bottom/Right)
+  
+  --mc-green: #3c8527 !important;          // Minecraft Button Green
+  --mc-green-hover: #47a02e !important;    // Hover Green
+  --mc-green-border: #1e4712 !important;
+
+  --darkgray: #d0c8d6 !important;           // Clean body text
+  --dark: #ffffff !important;               // Crisp headers
+  --secondary: #55aa22 !important;          // Accent link color
+  --tertiary: #66cc22 !important;
 }
 
-// Global page background & text rendering
+// Global reset to dark UI slate
 html, body {
   background-color: var(--light) !important;
   color: var(--darkgray) !important;
@@ -22,13 +28,12 @@ html, body {
 }
 
 // ============================================================================
-// 2. Header Banner & Nav Bar
+// 2. Header Banner
 // ============================================================================
 .page > #quartz-body {
   position: relative !important;
-  padding-top: 140px !important; // Room for top fixed banner
+  padding-top: 140px !important;
 
-  // Header background (Blurred GIF)
   &::before {
     content: "" !important;
     position: absolute !important;
@@ -44,11 +49,10 @@ html, body {
     transform: scale(1.05) !important;
     overflow: hidden !important;
     clip-path: inset(0) !important;
-    border-bottom: 3px solid #0d0b0e !important;
+    border-bottom: 3px solid #000000 !important;
     z-index: 10 !important;
   }
 
-  // Banner Logo Overlay
   &::after {
     content: "" !important;
     position: absolute !important;
@@ -65,39 +69,42 @@ html, body {
   }
 }
 
-// Hide default text page title in sidebar
 .sidebar .page-title {
   display: none !important;
 }
 
 // ============================================================================
-// 3. Grid Layout & Clean Wiki Containers
+// 3. ICHOR Style Inset Panels (Container Framing)
 // ============================================================================
 
-// Main Article Center Panel (Solid Dark Container)
+// Main Article Center Panel
 .page > #quartz-body .center {
-  background-color: #211c23 !important;
-  border: 2px solid var(--lightgray) !important;
-  border-radius: 0px !important; // Sharp pixel corners
+  background-color: var(--panel-bg) !important;
+  border: 3px solid var(--border-dark) !important;
+  // Authentic 3D Inset Beveling
+  box-shadow: 
+    inset -2px -2px 0px 0px var(--border-light),
+    inset 2px 2px 0px 0px #080609,
+    0px 4px 12px rgba(0,0,0,0.6) !important;
   padding: 32px !important;
   min-height: calc(100vh - 180px) !important;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
 }
 
-// Sidebars (Clean Dark Panels)
+// Left & Right Sidebars
 .sidebar.left,
 .sidebar.right {
   position: sticky !important;
   top: 130px !important;
   height: calc(100vh - 150px) !important;
-  background-color: #1e1920 !important;
-  border: 2px solid var(--lightgray) !important;
-  border-radius: 0px !important;
+  background-color: var(--panel-bg) !important;
+  border: 3px solid var(--border-dark) !important;
+  box-shadow: 
+    inset -2px -2px 0px 0px var(--border-light),
+    inset 2px 2px 0px 0px #080609 !important;
   padding: 16px !important;
   overflow-y: auto !important;
 }
 
-// Remove nested component frames so everything sits flat
 .sidebar .explorer,
 .sidebar .graph,
 div[id^="graph-"] {
@@ -109,38 +116,86 @@ div[id^="graph-"] {
 }
 
 // ============================================================================
-// 4. Explorer & Navigation Styling
+// 4. In-Game Minecraft GUI Buttons & Search Inputs
+// ============================================================================
+
+// Search Input (Inset Item Slot Style)
+.search {
+  margin-bottom: 16px !important;
+
+  input[type="text"],
+  #search-bar {
+    background-color: var(--slot-bg) !important;
+    color: #ffffff !important;
+    border: 2px solid #000000 !important;
+    box-shadow: inset 2px 2px 0px 0px #080609, inset -1px -1px 0px 0px var(--border-light) !important;
+    border-radius: 0px !important;
+    padding: 8px 12px !important;
+    font-family: monospace !important;
+
+    &::placeholder {
+      color: #6a5d70 !important;
+    }
+
+    &:focus {
+      border-color: var(--secondary) !important;
+      outline: none !important;
+    }
+  }
+}
+
+// Tag Buttons Styled Like ICHOR "+ Add" Buttons
+a.internal.tag-link {
+  display: inline-block !important;
+  background-color: var(--mc-green) !important;
+  color: #ffffff !important;
+  border: 2px solid var(--mc-green-border) !important;
+  box-shadow: inset 1px 1px 0px 0px #63b342, inset -1px -1px 0px 0px #245217 !important;
+  border-radius: 0px !important;
+  padding: 4px 10px !important;
+  font-size: 0.85em !important;
+  font-weight: bold !important;
+  text-shadow: 1px 1px 0px #000000 !important;
+
+  &:hover {
+    background-color: var(--mc-green-hover) !important;
+    color: #ffffff !important;
+  }
+
+  &[href*="blocks"]::before { content: "⚒️ "; }
+  &[href*="core"]::before { content: "📜 "; }
+}
+
+// ============================================================================
+// 5. Explorer Tree & Navigation
 // ============================================================================
 .explorer {
   position: relative !important;
 
-  // Title styling
   .explorer-title, button {
     color: var(--dark) !important;
     font-weight: bold !important;
     text-shadow: 1px 1px 0px #000000 !important;
   }
 
-  // Tree links
   a, span {
     color: var(--darkgray) !important;
-    transition: color 0.15s ease !important;
   }
 
   a:hover, .folder-container:hover {
     color: var(--secondary) !important;
   }
 
-  // Active document highlight
   .file-link.active,
   .file-link[aria-current="page"] {
-    background-color: var(--highlight) !important;
-    color: var(--secondary) !important;
-    font-weight: bold !important;
+    background-color: rgba(85, 170, 34, 0.2) !important;
+    border-left: 3px solid var(--secondary) !important;
+    color: #ffffff !important;
+    padding-left: 6px !important;
   }
 }
 
-// Mob Buddy Frog Asset placement above Explorer
+// Frog Mob Buddy sitting on top of Explorer frame
 .explorer::before {
   content: "" !important;
   display: block !important;
@@ -155,21 +210,6 @@ div[id^="graph-"] {
   pointer-events: none !important;
 }
 
-// Custom Tag Links
-a.internal.tag-link {
-  display: inline-block !important;
-  background-color: rgba(85, 170, 34, 0.15) !important;
-  color: var(--secondary) !important;
-  border: 1px solid rgba(85, 170, 34, 0.4) !important;
-  border-radius: 0px !important;
-  padding: 2px 8px !important;
-  font-size: 0.85em !important;
-  font-weight: bold !important;
-
-  &[href*="blocks"]::before { content: "⚒️ "; }
-  &[href*="core"]::before { content: "📜 "; }
-}
-
 // Category folder accent colors
 a[data-for="Core Systems"], 
 .explorer [data-folderpath="Core Systems"] > .folder-container > a {
@@ -182,34 +222,7 @@ a[data-for="Blocks"],
 }
 
 // ============================================================================
-// 5. Search Bar (Minecraft GUI Input Box Style)
-// ============================================================================
-.search {
-  margin-bottom: 16px !important;
-
-  input[type="text"],
-  #search-bar {
-    background-color: #120e14 !important;
-    color: #ffffff !important;
-    border: 2px solid #3d3342 !important;
-    border-radius: 0px !important;
-    padding: 8px 12px !important;
-    font-family: monospace !important;
-    box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.6) !important;
-
-    &::placeholder {
-      color: var(--gray) !important;
-    }
-
-    &:focus {
-      border-color: var(--secondary) !important;
-      outline: none !important;
-    }
-  }
-}
-
-// ============================================================================
-// 6. Interactive Graph View & SVG Nodes
+// 6. Interactive Graph View
 // ============================================================================
 .sidebar .graph {
   margin-top: 16px !important;
@@ -217,7 +230,6 @@ a[data-for="Blocks"],
   .graph-title {
     color: var(--dark) !important;
     font-weight: bold !important;
-    margin-bottom: 8px !important;
   }
 }
 
@@ -242,89 +254,40 @@ div[id^="graph-"],
 }
 
 // ============================================================================
-// 7. Typography, Code Blocks & Content Styling
+// 7. Typography, Code Blocks, and Scrollbars
 // ============================================================================
 article {
   h1, h2, h3, h4, h5, h6 {
     color: var(--dark) !important;
-    border-bottom: 1px solid var(--lightgray) !important;
+    border-bottom: 2px solid var(--border-dark) !important;
     padding-bottom: 4px !important;
+    text-shadow: 1px 1px 0px #000000 !important;
   }
 
-  code {
-    background-color: #120e14 !important;
-    color: #e2dae6 !important;
-    border: 1px solid #3d3342 !important;
-    border-radius: 0px !important;
-  }
-
-  pre {
-    background-color: #120e14 !important;
-    border: 2px solid #3d3342 !important;
+  code, pre {
+    background-color: var(--slot-bg) !important;
+    border: 2px solid #000000 !important;
+    box-shadow: inset 2px 2px 0px 0px #080609 !important;
     border-radius: 0px !important;
   }
 }
 
-// Disable default Quartz footer
-footer {
-  display: none !important;
-}
-
-// ============================================================================
-// 8. Minecraft Zone
-// ============================================================================
-// 1. In-Game Minecraft Scrollbars
+// In-Game Pixel Scrollbars
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #120e14;
-  border-left: 2px solid #2d262f;
+  background: var(--slot-bg);
 }
 ::-webkit-scrollbar-thumb {
   background: #3d3342;
-  border: 2px solid #120e14;
+  border: 2px solid #000000;
   &:hover {
-    background: #55aa22;
+    background: var(--secondary);
   }
 }
 
-// 2. Item-Tooltip Hover Boxes (Minecraft Inventory Style)
-[data-tooltip], .tooltip {
-  position: relative;
-  &:hover::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(16, 12, 24, 0.95);
-    color: #ffffff;
-    border: 2px solid #2b0d3e; // Classic enchanted purple outline
-    padding: 4px 8px;
-    font-size: 0.8rem;
-    white-space: nowrap;
-    z-index: 1000;
-    box-shadow: 0 0 0 2px #100b14;
-  }
+footer {
+  display: none !important;
 }
-
-// 3. Minecraft Container Callout Boxes
-.callout {
-  background-color: #120e14 !important;
-  border: 2px solid #3d3342 !important;
-  border-left: 6px solid var(--secondary) !important;
-  border-radius: 0px !important;
-  box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.5) !important;
-  color: var(--darkgray) !important;
-
-  &[data-callout="warning"] {
-    border-left-color: #ff9e64 !important;
-  }
-  &[data-callout="danger"] {
-    border-left-color: #f7768e !important;
-  }
-}
-
-//balls
