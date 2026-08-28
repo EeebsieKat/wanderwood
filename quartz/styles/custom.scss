@@ -421,7 +421,6 @@ a.internal.tag-link {
 // 8. Minecraft Callout Cards (Recipes & Items)
 // ============================================================================
 
-// Base styling for Custom Minecraft Callouts
 .callout[data-callout="recipe"],
 .callout[data-callout="item"] {
   background-color: var(--slot-bg) !important;
@@ -432,9 +431,8 @@ a.internal.tag-link {
   padding: 12px 16px !important;
   margin: 16px 0 !important;
 
-  // Header Title
   .callout-title {
-    color: #ffaa00 !important; // Minecraft Gold
+    color: #ffaa00 !important;
     font-weight: bold !important;
     font-size: 1.1em !important;
     text-shadow: 1px 1px 0px #000000 !important;
@@ -443,11 +441,10 @@ a.internal.tag-link {
     margin-bottom: 10px !important;
     
     .callout-icon {
-      display: none !important; // Hide standard callout icon
+      display: none !important;
     }
   }
 
-  // Inside text formatting
   .callout-content {
     color: var(--darkgray) !important;
     font-size: 0.95em !important;
@@ -458,22 +455,44 @@ a.internal.tag-link {
   }
 }
 
-// Crafting Recipe Table Grid Styling
+// Crafting Table Grid (Square Inset Slots)
 .callout[data-callout="recipe"] table {
   border-collapse: collapse !important;
   background-color: var(--panel-bg) !important;
   border: 2px solid var(--border-dark) !important;
-  margin: 8px 0 !important;
+  margin: 12px 0 !important;
+  width: auto !important;
+  table-layout: fixed !important;
+
+  thead {
+    display: none !important; // Hides empty table header bar
+  }
+
+  tr {
+    background: transparent !important;
+  }
 
   td, th {
-    width: 40px !important;
-    height: 40px !important;
+    width: 48px !important;
+    height: 48px !important;
+    min-width: 48px !important;
+    max-width: 48px !important;
+    aspect-ratio: 1 / 1 !important;
     text-align: center !important;
     vertical-align: middle !important;
     background-color: var(--slot-bg) !important;
     border: 2px solid var(--border-dark) !important;
     box-shadow: inset 2px 2px 0px 0px #000000 !important;
-    padding: 2px !important;
+    padding: 0 !important;
+
+    img {
+      display: block !important;
+      margin: 0 auto !important;
+      width: 32px !important;
+      height: 32px !important;
+      image-rendering: pixelated !important;
+      image-rendering: crisp-edges !important;
+    }
   }
 }
 
