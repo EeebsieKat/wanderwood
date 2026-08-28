@@ -40,6 +40,12 @@ Create:
 
 Apotheosis:
 <span class="mc-sprite" style="background-image: url('https://raw.githubusercontent.com/Shadows-of-Fire/Apotheosis/refs/heads/1.21/src/main/resources/assets/apotheosis/textures/items/gem_dust.png');"></span>
+![](https://raw.githubusercontent.com/Shadows-of-Fire/Apotheosis/refs/heads/1.21/src/main/resources/assets/apotheosis/textures/items/timeworn_fabric.png)
+
+Farmer's Delight:
+![](https://raw.githubusercontent.com/vectorwing/FarmersDelight/refs/heads/1.21/src/main/resources/assets/farmersdelight/textures/item/barbecue_stick.png)
+![](https://raw.githubusercontent.com/vectorwing/FarmersDelight/refs/heads/1.21/src/main/resources/assets/farmersdelight/textures/item/cabbage.png)
+![](https://raw.githubusercontent.com/vectorwing/FarmersDelight/refs/heads/1.21/src/main/resources/assets/farmersdelight/textures/item/diamond_knife.png)
 
 Vanilla:
 ![](https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.20.4/assets/minecraft/textures/item/stick.png)
