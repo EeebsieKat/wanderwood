@@ -354,3 +354,82 @@ article {
 footer {
   display: none !important;
 }
+
+// ============================================================================
+// 7. Tags, Emojis, and Colors
+// ============================================================================
+// Base style for custom tag buttons
+a.internal.tag-link {
+  display: inline-block !important;
+  color: #ffffff !important;
+  padding: 3px 8px !important;
+  font-size: 0.85em !important;
+  font-weight: bold !important;
+  text-shadow: 1px 1px 0px #000000 !important;
+  border-style: solid !important;
+  border-width: 2px !important;
+
+  // 1. entity/boss
+  &[href*="entity/boss"] {
+    background-color: #801212 !important;
+    border-color: #4a0a0a !important;
+    box-shadow: inset 1px 1px 0px 0px #a82323, inset -1px -1px 0px 0px #300505 !important;
+    &::after { content: " ☠️"; }
+  }
+
+  // 2. entity/mob
+  &[href*="entity/mob"] {
+    background-color: #a83232 !important;
+    border-color: #5e1a1a !important;
+    box-shadow: inset 1px 1px 0px 0px #c44d4d, inset -1px -1px 0px 0px #401010 !important;
+    &::after { content: " 💀"; }
+  }
+
+  // 3. mainpage
+  &[href*="mainpage"] {
+    background-color: #278527 !important;
+    border-color: #124712 !important;
+    box-shadow: inset 1px 1px 0px 0px #42b342, inset -1px -1px 0px 0px #0c300c !important;
+    &::after { content: " 🏠"; }
+  }
+
+  // 4. core
+  &[href*="core"]:not([href*="teleportation"]) {
+    background-color: #a67c52 !important;
+    border-color: #5e432a !important;
+    box-shadow: inset 1px 1px 0px 0px #c4996e, inset -1px -1px 0px 0px #3d2a19 !important;
+    &::after { content: " 📜"; }
+  }
+
+  // 5. core/teleportation
+  &[href*="core/teleportation"] {
+    background-color: #c9a07b !important;
+    border-color: #73573f !important;
+    box-shadow: inset 1px 1px 0px 0px #e3bd9a, inset -1px -1px 0px 0px #4a3625 !important;
+    &::after { content: " 🪵"; }
+  }
+
+  // 6. blocks
+  &[href*="blocks"] {
+    background-color: #e62e5c !important;
+    border-color: #801430 !important;
+    box-shadow: inset 1px 1px 0px 0px #ff5c85, inset -1px -1px 0px 0px #520b1e !important;
+    &::after { content: " ⚒️"; }
+  }
+
+  // 7. fauna/general
+  &[href*="fauna/general"] {
+    background-color: #7a4721 !important;
+    border-color: #42240e !important;
+    box-shadow: inset 1px 1px 0px 0px #9e6132, inset -1px -1px 0px 0px #261305 !important;
+    &::after { content: " 🍂"; }
+  }
+
+  // 8. farming
+  &[href*="farming"] {
+    background-color: #1e6b20 !important;
+    border-color: #0d380e !important;
+    box-shadow: inset 1px 1px 0px 0px #348f37, inset -1px -1px 0px 0px #061a06 !important;
+    &::after { content: " 🍉"; }
+  }
+}
