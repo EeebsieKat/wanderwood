@@ -33,7 +33,7 @@
 - **[[Glowlayer Tower ]](Multiblock):** A tall multi-block stack offungi that distills sludge into distinct liquid/gas layers
     
 
-**Advanced & High-Tier Machines**
+#### **Advanced & High-Tier Machines**
 
 - [[**Gloomforge Hearth]] (Multiblock):** A tall thermal-clay spire that reaches extreme temperatures to smelt metals
     
@@ -44,7 +44,7 @@
 - **[[Glowrot Fermenter]]:** Processes organic matter into fluids, alcohols, and gases
     
 
-**Essential Components & Crafting Parts**
+#### **Essential Components & Crafting Parts**
 
 - **[[Glowpulse Motor]] / [[Gloompulse Motor]]:** Living bulbs that expand and contract to drive mechanical motion
     
