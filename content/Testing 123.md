@@ -63,4 +63,4 @@ Template testing:
 
 <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 
-<model-viewer src="https://raw.githubusercontent.com/EeebsieKat/wanderwood/refs/heads/main/quartz/static/glowlace_chamber.glb" alt="3D Glowlace Chamber" auto-rotate camera-controls style="width: 100%; height: 300px; background-color: #1a1a1a; border-radius: 8px;"></model-viewer>
+<model-viewer src="https://raw.githubusercontent.com/EeebsieKat/wanderwood/refs/heads/main/quartz/static/glowlace_chamber.glb" alt="3D Glowlace Chamber" auto-rotate camera-controls style="width: 100%; height: 300px;"></model-viewer>
