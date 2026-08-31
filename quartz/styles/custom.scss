@@ -415,6 +415,14 @@ a.internal.tag-link {
     box-shadow: inset 1px 1px 0px 0px #348f37, inset -1px -1px 0px 0px #061a06 !important;
     &::after { content: " 🍉"; }
   }
+
+  // 9. tech/general
+  &[href*="tech/general"] {
+    background-color: #36400A !important;
+    border-color: #191f03 !important;
+    box-shadow: inset 1px 1px 0px 0px #799112, inset -1px -1px 0px 0px #202605 !important;
+    &::after { content: " 🔧"; }
+  }
 }
 
 // ============================================================================
