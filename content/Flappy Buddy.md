@@ -1,3 +1,10 @@
+<script>
+  // Redirects any 404 hit immediately to this page
+  if (window.location.pathname !== "/flappy-buddy" && window.location.pathname !== "/wanderwood/flappy-buddy") {
+    window.location.replace("/wanderwood/flappy-buddy");
+  }
+</script>
+
 <div style="text-align: center; font-family: monospace;">
   <h2>404 - Lost in the Wanderwood!</h2>
   <p>Your Mob Buddy got separated from the pack. Guide them back to safety!</p>
