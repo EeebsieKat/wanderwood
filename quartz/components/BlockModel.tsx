@@ -4,7 +4,8 @@ export default (() => {
   const BlockModel: QuartzComponent = ({ displayClass }: QuartzComponentProps) => {
     return (
       <script 
-        src="https://cdn.jsdelivr.net/npm/minecraft-model-viewer@latest/dist/minecraft-model-viewer.min.js"
+        type="module" 
+        src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"
         class={displayClass}
       ></script>
     )

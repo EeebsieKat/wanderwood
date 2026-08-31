@@ -61,4 +61,4 @@ Template testing:
 > | | | | ➔ | <span data-count="1">![](https://static.vecteezy.com/system/resources/previews/012/909/727/non_2x/single-of-banana-png.png)</span> |
 > | | | | | |
 
-<div class="mc-model" data-model="https://raw.githubusercontent.com/EeebsieKat/wanderwood/refs/heads/main/quartz/static/glowlace_chamber.json" data-textures="https://raw.githubusercontent.com/EeebsieKat/wanderwood/refs/heads/main/quartz/static/" style="width: 200px; height: 200px;"></div>
+<model-viewer src="https://raw.githubusercontent.com/EeebsieKat/wanderwood/refs/heads/main/quartz/static/glowlace_chamber.glb" alt="3D Glowlace Chamber" auto-rotate camera-controls style="width: 100%; height: 300px; background-color: #1a1a1a; border-radius: 8px;"></model-viewer>
