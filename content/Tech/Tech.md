@@ -2,17 +2,17 @@
 
 **Tier Progression Scale**
 
-`Primitive` $\rightarrow$ `Basic` $\rightarrow$ `Decent` $\rightarrow$ `Advanced` $\rightarrow$ `Glow` $\rightarrow$ `Wandering` $\rightarrow$ `Gloom` $\rightarrow$ `Woodware` $\rightarrow$ `Aetheria` _(Placeholder Endgame Tier)_
+`Primitive` $\rightarrow$ `Basic` $\rightarrow$ `Decent` $\rightarrow$ `Advanced` $\rightarrow$ `Glow` $\rightarrow$ `Wandering` $\rightarrow$ `Gloom` $\rightarrow$ `Woodware` $\rightarrow$ `Glimmer`
 
-**Basic Processing Machines**
+#### **Basic Processing Machines**
 
-- **Electric Furnace / Alloy Smelter $\rightarrow$ Glow-Fuse Smelter:** Uses active Glow channels to fuse raw metals and minerals into specialized biological and mechanical alloys.
+- **Glowfuse Smelter:** Uses Glow to fuse raw metals and minerals into different alloys
     
-- **Macerator / Pulverizer $\rightarrow$ Glow-Crush Pulverizer:** Grinds raw ores into fine dusts using Glow-powered crushing teeth to maximize byproduct yields.
+- **Glowcrush Macerator:** Grinds raw ores into dusts to maximize ore output
     
-- **Compressor $\rightarrow$ Glow-Press Compressor:** Applies high-tension Glow pressure to compact dusts into dense structural plates, blocks, and gems.
+- **Glowplate Compressor:** Compresses dusts and ingots into plates, blocks, and gems
     
-- **Extractor $\rightarrow$ Glow-Seep Extractor:** Squeezes liquid resins, latex, and biological fluids straight out of raw materials using Glow suction nodes.
+- **Glowseep Extractor:** Squeezes liquid resins, latex, and fluids straight out of raw materials
     
 - **Centrifuge $\rightarrow$ Glow-Spin Centrifuge:** Rapidly rotates complex fluid slurries and dust mixtures to separate them into pure elemental layers.
     
