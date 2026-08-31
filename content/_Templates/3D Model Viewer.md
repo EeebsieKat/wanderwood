@@ -1,0 +1,1 @@
+<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script><model-viewer src="GLB_FILE_URL_HERE" alt="3D Model" auto-rotate camera-controls style="width: 100%; height: 300px;"></model-viewer>

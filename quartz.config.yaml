@@ -174,6 +174,8 @@ plugins:
         showLabels: true
         depth: -1
       globalGraph:
+        repelForce: 0.8
+        linkDistance: 40
         showTags: true
         showLabels: true
     layout:

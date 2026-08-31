@@ -6,96 +6,84 @@
 
 #### **Basic Processing Machines**
 
-- **Glowfuse Smelter:** Uses Glow to fuse raw metals and minerals into different alloys
+- **[[Glowfuse Smelter]]:** Uses Glow to fuse raw metals and minerals into different alloys
     
-- **Glowcrush Macerator:** Grinds raw ores into dusts to maximize ore output
+- **[[Glowcrush Macerator]]:** Grinds raw ores into dusts to maximize ore output
     
-- **Glowplate Compressor:** Compresses dusts and ingots into plates, blocks, and gems
+- **[[Glowplate Compressor]]:** Compresses dusts and ingots into plates, blocks, and gems
     
-- **Glowseep Extractor:** Squeezes liquid resins, latex, and fluids straight out of raw materials
+- **[[Glowseep Extractor]]:** Squeezes liquid resins, latex, and fluids straight out of raw materials
     
-- **Glowspin Seperator:** Rapidly rotates fluid slurries and dust mixtures to separate them into purer materials
+- **[[Glowspin Seperator]]:** Rapidly rotates fluid slurries and dust mixtures to separate them into purer materials
     
-- **Glowsplit Electrolyzer:** Runs bioluminescent currents through a moss matrix to break liquid compounds into pure gas and fluid streams.
+- **[[Glowsplit Electrolyzer]]:** Runs Glow through a moss mesh to break liquids compounds into pure gas and fluids
     
-- **Wiremill $\rightarrow$ Glow-Draw Wiremill:** Pulls metal rods through needle-thorns using Glow tension to weave fine conductive cables and wires.
+- **[[Glowdraw Wiremill]]:** Pulls ingots through rolling presses to shape wires and plates
     
-- **Bending Machine / Plate Bender $\rightarrow$ Glow-Stamp Bender:** Shapes ingots into machine casing sheets using weighted wood levers driven by Glow.
+- **[[Glowstamp Bender]]:** Shapes ingots into machine casing sheets
     
-- **Extruder $\rightarrow$ Glow-Push Extruder:** Forces heated metals through custom mold dies to produce pipes, gears, rings, and hollow tubes.
+- **[[Glowpush Extruder]]:** Forces heated metals through custom mold dies to produce pipes, gears, rings, and hollow tubes
     
-- **Lathe $\rightarrow$ Glow-Turn Lathe:** Spins material rods at high speeds against abrasive sand-leaf lining to carve precise screws and polished axles.
+- **[[Glowturn Lathe]]:** Spins material rods at high speeds to carve screws and axles
     
-- **Fluid Solidifier $\rightarrow$ Glow-Mold Solidifier:** Directs liquid metals and bio-fluids into clay-lined leaf molds to solidify them into usable shapes.
+- **[[Glowmold Solidifier]]:** Directs liquid metals and fluids into clay molds to solidify them into usable shapes
     
-- **Chemical Reactor $\rightarrow$ Glow-Blend Reactor:** Synthesizes new biological compounds by mixing fluids and dusts inside a Glow-heated chamber.
+- **[[Glowblend Reactor]]:** Synthesizes new compounds by mixing fluids and dusts
     
-- **Distillation Tower (Multi-block) $\rightarrow$ Glow-Layer Canopy:** A tall multi-block stack of hollow fungal caps that distills complex bio-sludge into distinct liquid/gas layers.
+- **[[Glowlayer Tower ]](Multiblock):** A tall multi-block stack offungi that distills sludge into distinct liquid/gas layers
     
 
 **Advanced & High-Tier Machines**
 
-- **Blast Furnace (Multi-block) $\rightarrow$ Gloom-Forge Hearth:** A tall thermal-clay spire fueled by Nether-native Gloom that reaches extreme temperatures to smelt refractory metals.
+- [[**Gloomforge Hearth]] (Multiblock):** A tall thermal-clay spire that reaches extreme temperatures to smelt metals
     
-- **Vacuum Freezer (Multi-block) $\rightarrow$ Gloom-Chill Freezer:** A frost-bound root chamber packed with endothermic fungi that uses Gloom to rapidly cool glowing-hot metals into usable ingots.
+- **[[Gloomburst Compressor]]:** Uses explosives to crush materials into other components
     
-- **Implosion Compressor $\rightarrow$ Gloom-Burst Compressor:** Uses volatile seed-pod detonations encased in Gloom energy to crush materials into ultra-dense components.
+- **[[Gloomsap Autoclave]]:** A pressurized chamber that grows pure crystal structures over long periods of time
     
-- **Assembly Line (Multi-block) $\rightarrow$ Gloom-Weave Assembly Matrix:** A long multi-segment root bed where Gloom-driven tendrils and fluid injectors assemble late-game machinery.
-    
-- **Autoclave $\rightarrow$ Gloom-Sap Autoclave:** A pressurized chamber that uses Gloom-infused sap to grow pure crystalline structures over long periods.
-    
-- **Fermenter $\rightarrow$ Glow-Rot Fermenter:** Processes organic matter into bio-fluids, alcohols, and gases for fuel and chemical synthesis using specialized Glow decomposers.
-    
-- **Fluid Canner / Uncanner $\rightarrow$ Glow-Pouch Canner:** Automatically fills or empties liquid containers, hollow gourds, and dried spore-bladders.
+- **[[Glowrot Fermenter]]:** Processes organic matter into fluids, alcohols, and gases
     
 
 **Essential Components & Crafting Parts**
 
-- **Motors (Electric / Kinetic) $\rightarrow$ Glow-Pulse Motor / Gloom-Pulse Motor:** Living muscle-bulbs that expand and contract to drive mechanical motion.
+- **[[Glowpulse Motor]] / [[Gloompulse Motor]]:** Living bulbs that expand and contract to drive mechanical motion
     
-- **Pumps (Fluid) $\rightarrow$ Glow-Vessel Pump / Gloom-Vessel Pump:** Organic vascular nodes designed to push fluids smoothly through vine networks.
+- **Glowboard Networks & Gloompin Arrays:** Conductive fiber structures that mark progression gates:
     
-- **Conveyors / Robot Arms $\rightarrow$ Glow-Tendril Arm / Gloom-Tendril Arm:** Flexible plant limbs that grab, move, and position items precisely in crafting grids.
+    - _Primitive:_ [[Primitive Strandweave]]
+        
+    - _Basic:_ [[Basic Strandweave]]
+        
+    - _Decent:_ [[Decent Fiberlattice]]
+        
+    - _Advanced:_ [[Advanced Fiberlattice]]
+        
+    - _Glow:_ [[Glowboard Network]]
+        
+    - _Wandering:_ [[Wandering Woodboard]]
+        
+    - _Gloom:_ [[Gloompin Array]]
+        
+    - _Woodware:_ [[Ancient Woodware Matrix]]
+        
+    - _Glimmer:_ [[Glimmering Wroughtloom]]
+        
+- **Glowlined & Gloomforged Casings:** Outer structural frames built from hardened woods, petrified bark, and dense resins:
     
-- **Emitters & Sensors $\rightarrow$ Glow-Sense Filament / Gloom-Sense Filament:** Bioluminescent nerve fibers that emit signals and sense surrounding item states.
-    
-- **Circuits $\rightarrow$ Glow-Lace Networks & Gloom-Nerve Arrays:** Conductive fiber structures that mark your primary progression gates:
-    
-    - _Primitive:_ Primitive Strand-Weave
+    - _Primitive:_ [[Primitive Bark Casing]]
         
-    - _Basic:_ Basic Strand-Weave
+    - _Basic:_ [[Basic Stem Casing]]
         
-    - _Decent:_ Decent Fiber-Lattice
+    - _Decent:_ [[Decent Burl Casing]]
         
-    - _Advanced:_ Advanced Fiber-Lattice
+    - _Advanced:_ [[Advanced Ironwood Casing]]
         
-    - _Glow:_ Glow-Lace Network
+    - _Glow:_ [[Glowlined Casing]]
         
-    - _Wandering:_ Wandering Synaptic-Lace
+    - _Wandering:_ [[Wandering Trunk Casing]]
         
-    - _Gloom:_ Gloom-Nerve Array
+    - _Gloom:_ [[Gloomforged Casing]]
         
-    - _Woodware:_ Ancient Woodware Matrix
+    - _Woodware:_ [[Ancient Woodware Casing]]
         
-    - _Aetheria:_ Aetheria Thought-Loom
-        
-- **Machine Casings & Hulls $\rightarrow$ Glow-Lined & Gloom-Forged Casings:** Outer structural frames built from hardened woods, petrified bark, and dense resins:
-    
-    - _Primitive:_ Primitive Bark-Casing
-        
-    - _Basic:_ Basic Stem-Casing
-        
-    - _Decent:_ Decent Burl-Casing
-        
-    - _Advanced:_ Advanced Ironwood-Casing
-        
-    - _Glow:_ Glow-Lined Casing
-        
-    - _Wandering:_ Wandering Trunk-Casing
-        
-    - _Gloom:_ Gloom-Forged Casing
-        
-    - _Woodware:_ Ancient Woodware Casing
-        
-    - _Aetheria:_ Aetheria Void-Resin Casing
+    - _Glimmer:_ [[Glimmering Voidresin Casing]]
