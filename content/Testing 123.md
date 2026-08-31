@@ -63,6 +63,6 @@ Template testing:
 
 <div class="mc-model" 
      data-model="https://raw.githubusercontent.com/EeebsieKat/wanderwood/refs/heads/main/quartz/static/glowlace_chamber.json"
-     data-textures="https://raw.githubusercontent.com/YourRepo/main/assets/textures/"
+     data-textures="https://raw.githubusercontent.com/EeebsieKat/wanderwood/refs/heads/main/quartz/static/"
      style="width: 200px; height: 200px;">
 </div>
