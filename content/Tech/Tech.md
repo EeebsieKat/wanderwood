@@ -14,9 +14,9 @@
     
 - **Glowseep Extractor:** Squeezes liquid resins, latex, and fluids straight out of raw materials
     
-- **Centrifuge $\rightarrow$ Glow-Spin Centrifuge:** Rapidly rotates complex fluid slurries and dust mixtures to separate them into pure elemental layers.
+- **Glowspin Seperator:** Rapidly rotates fluid slurries and dust mixtures to separate them into purer materials
     
-- **Electrolyzer $\rightarrow$ Glow-Split Electrolyzer:** Runs bioluminescent currents through a moss matrix to break liquid compounds into pure gas and fluid streams.
+- **Glowsplit Electrolyzer:** Runs bioluminescent currents through a moss matrix to break liquid compounds into pure gas and fluid streams.
     
 - **Wiremill $\rightarrow$ Glow-Draw Wiremill:** Pulls metal rods through needle-thorns using Glow tension to weave fine conductive cables and wires.
     
